@@ -1,10 +1,14 @@
 # Crimson Calculus
 
+**Online demo:** https://crimson-calculus.onrender.com
+
+Use the website username and password supplied privately by the operator. No Python installation is needed for the online demo.
+
 Roulette Odds, Strategy & Risk. Compare betting systems under session limits, follow the next wager, practice with virtual money, and ask Vivienne for help. The numerical calculator uses fixed probability rules; the AI explains results and can request controlled settings changes. No real bets are placed.
 
 ## Online demo
 
-Live link pending deployment. The shared demo requires access details supplied by its operator. This repository contains app source, bundled artwork/data and software tests. Class reports and saved AI/session/diagnostic evidence are kept separately.
+The shared demo requires access details supplied by its operator. The first visit after inactivity can take a minute to wake the free server. This repository contains app source, bundled artwork/data and software tests. Class reports and saved AI/session/diagnostic evidence are kept separately.
 
 ## Run locally
 
