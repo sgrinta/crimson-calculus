@@ -5,11 +5,41 @@ from functools import lru_cache
 import threading
 import time
 import unittest
+import os
 from unittest.mock import patch
 
 from flask import Flask
 import hosting
-from wsgi import install_demo_gate
+from wsgi import install_demo_gate, configure_demo_access
+
+
+class PublicDemoTests(unittest.TestCase):
+    def app(self):
+        application = Flask('public-demo-test')
+        application.add_url_rule('/', 'home', lambda: 'demo')
+        application.add_url_rule('/_dash-update-component', 'callback', lambda: 'callback', methods=['POST'])
+        return application
+
+    def test_explicit_public_demo_allows_anonymous_home_and_callbacks(self):
+        application = self.app()
+        with patch('wsgi.HOSTED_DEMO', True), patch.dict(os.environ, {'CRIMSON_PUBLIC_DEMO':'1'}, clear=True):
+            configure_demo_access(application)
+        client = application.test_client()
+        self.assertEqual(client.get('/').status_code, 200)
+        self.assertEqual(client.post('/_dash-update-component').status_code, 200)
+        self.assertNotIn('WWW-Authenticate', client.get('/').headers)
+
+    def test_hosted_access_remains_private_without_explicit_public_choice(self):
+        application = self.app()
+        with patch('wsgi.HOSTED_DEMO', True), patch.dict(os.environ, {'CRIMSON_DEMO_PASSWORD':'test-only'}, clear=True):
+            configure_demo_access(application)
+        self.assertEqual(application.test_client().get('/').status_code, 401)
+
+    def test_public_mode_does_not_disable_hosted_compute_limits(self):
+        with patch('wsgi.HOSTED_DEMO', True), patch.dict(os.environ, {'CRIMSON_PUBLIC_DEMO':'1'}, clear=True):
+            configure_demo_access(self.app())
+            import wsgi
+            self.assertTrue(wsgi.HOSTED_DEMO)
 
 
 class DemoAccessTests(unittest.TestCase):

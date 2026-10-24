@@ -38,6 +38,11 @@ def install_demo_gate(application, username, password):
         return response
 
 
-if HOSTED_DEMO:
-    install_demo_gate(server, os.getenv('CRIMSON_DEMO_USERNAME', 'guest'),
-                      os.getenv('CRIMSON_DEMO_PASSWORD', ''))
+def configure_demo_access(application):
+    # Public access is an explicit operator choice; AI usage limits still apply.
+    if HOSTED_DEMO and os.getenv('CRIMSON_PUBLIC_DEMO') != '1':
+        install_demo_gate(application, os.getenv('CRIMSON_DEMO_USERNAME', 'guest'),
+                          os.getenv('CRIMSON_DEMO_PASSWORD', ''))
+
+
+configure_demo_access(server)
