@@ -1,0 +1,4 @@
+Selected by the user on 2026-10-23.
+Source: design/host-candidates/02-champagne-blonde-full-body-v2.png
+The original full-body image is served intact. CSS frames her face in the circular launcher, header, hub and message avatars.
+Earlier portrait assets are preserved.

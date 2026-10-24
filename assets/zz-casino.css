@@ -1,0 +1,591 @@
+/* Locally bundled Google Fonts; licenses accompany the files in fonts/. */
+@font-face{
+  font-family:'Cormorant Garamond';font-style:normal;font-weight:400 600;font-display:swap;
+  src:url('/assets/fonts/cormorant-garamond-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Cormorant Garamond';font-style:italic;font-weight:400 600;font-display:swap;
+  src:url('/assets/fonts/cormorant-garamond-italic.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Jost';font-style:normal;font-weight:400 600;font-display:swap;
+  src:url('/assets/fonts/jost-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* Crimson Calculus · The Roulette Room
+   A contemporary casino palette: vivid crimson, soft black and warm ivory.
+   Presentation only; tab visibility, wager geometry and calculation state are untouched. */
+:root,body{
+  --room-bg:#100b0f;--room-surface:#050505;--room-raised:#2a1720;
+  --room-ivory:#f1e8da;--room-soft:#c3b9b0;--room-line:#44303a;
+  --room-red:#ce2447;--room-bright:#ee9cac;--room-edge:#b4a390;
+  --black:#0d0c0f;--white:#f1e8da;--red:#ce2447;
+  --Dash-Fill-Inverse-Strong:#171619;--Dash-Fill-Primary-Hover:#30262d;
+  --Dash-Fill-Primary-Active:#422430;--Dash-Fill-Interactive-Strong:#d45a73;
+  --Dash-Fill-Interactive-Weak:#35222b;--Dash-Fill-Primary-Strong:#211d21;
+  --Dash-Fill-Primary-Weak:#211d21;--Dash-Fill-Inverse-Weak:#211d21;
+  --Dash-Text-Primary:#f1e8da;--Dash-Text-Secondary:#c3b9b0;
+  --Dash-Text-Disabled:#968b86;--Dash-Stroke-Strong:#74615e;--Dash-Stroke-Weak:#514448;
+  --Dash-Spacing:0px;
+  color-scheme:dark;
+}
+html,body{background:var(--room-bg);color:var(--room-ivory);font-family:'Avenir Next','Segoe UI',Arial,sans-serif;font-size:14px}
+body{background-image:radial-gradient(ellipse at 80% 0,rgba(181,21,58,.12),transparent 48%);background-attachment:fixed}
+::selection{background:#7d2035;color:#fff6eb}
+.shell{background:transparent}
+.page{max-width:1440px;padding:0 5vw 24px}
+h1,h2,h3{font-family:'Baskerville','Iowan Old Style','Palatino Linotype',Georgia,serif;font-weight:400;letter-spacing:-.035em;color:var(--room-ivory)}
+h2{font-size:34px;line-height:1.15}h3{font-size:25px}h4{color:var(--room-ivory)}
+p,li{line-height:1.7}small{color:var(--room-soft)}
+button,input,textarea{font-family:inherit}
+button{color:inherit}
+button:disabled{cursor:not-allowed;opacity:.5}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--room-bright);outline-offset:4px}
+.eyebrow{color:var(--room-bright);font-size:10px;font-weight:500;letter-spacing:.23em}
+.small-note,.beginner-intro,.hero-copy,.numeric-click-help{color:var(--room-soft)}
+.badge{border-color:var(--room-line);color:var(--room-soft);font-weight:500;letter-spacing:.15em;padding:9px 12px;background:rgba(20,17,21,.6)}
+
+/* A generous crimson welcome, with a real wheel and decorative casino suits. */
+.topbar{height:86px;padding:0 5vw;background:transparent;border-top:0;border-bottom:1px solid #ffffff0e}
+.wordmark{gap:15px;font-weight:400;letter-spacing:0;color:var(--room-ivory)}
+.logo-mark{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;border-radius:50%;background:#d52a4a;color:#fff4e8;font-size:15px;flex:none;transform:none;box-shadow:0 0 0 5px #ce244714}
+.logo-mark>span{transform:none;font-family:Georgia,serif;font-size:14px;letter-spacing:-1px}
+.brand-lockup{display:flex;flex-direction:column;gap:4px}.brand-lockup strong{font-family:Georgia,serif;font-size:27px;font-weight:400;letter-spacing:.01em}.brand-lockup small{font-size:7px;letter-spacing:.3em;color:var(--room-soft)}
+.topbar>.badge{font-size:8px;border:0;background:transparent;color:#c4a8b2;letter-spacing:.14em}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);align-items:center;gap:25px;min-height:350px;padding:36px 44px;margin:26px 0 8px;border:0;border-radius:22px;position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 88% 0,#e73b57 0,transparent 45%),linear-gradient(112deg,#ab1539 0,#cb2146 55%,#8b0e2d 100%);box-shadow:0 24px 65px #35031335}
+.hero:before{content:'';position:absolute;width:480px;height:480px;right:-90px;top:-180px;border:1px solid #ffe3e521;border-radius:50%;pointer-events:none}.hero:after{content:'';position:absolute;width:530px;height:530px;right:-115px;top:-205px;border:1px solid #ffe3e514;border-radius:50%;background:none;pointer-events:none}
+.hero-text{position:relative;z-index:2;padding-right:10px}.hero .eyebrow{font-size:10px;letter-spacing:.2em;color:#ffe1e6;margin-bottom:18px;display:flex;align-items:center;gap:9px}.hero .eyebrow>span{font-size:19px}
+.hero h1{font-size:clamp(46px,5.8vw,76px);line-height:1.02;font-weight:400;letter-spacing:-.045em;margin:0 0 20px;color:#fff3e7}
+.hero h1 span{font-style:italic;color:#fff3e7}.hero h1 span:before{content:none}.hero-copy{max-width:420px;font-size:14px;line-height:1.8;color:#ffe3e8;margin:0}
+.hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:26px}.hero-cta{display:inline-flex;align-items:center;gap:18px;padding:14px 19px;border:0;border-radius:8px;background:#fff0e4;color:#641127;font-size:12px;font-weight:600;box-shadow:0 8px 24px #4d001a25;cursor:pointer}.hero-cta span{font-size:20px;line-height:1}.hero-cta:hover{background:#fff9f2;transform:translateY(-1px)}.hero-link{background:transparent;border:0;border-bottom:1px solid #ffdce04d;border-radius:0;color:#fff0e6;font-size:12px;padding:7px 0}
+.hero-suits{display:flex;gap:18px;margin-top:25px;color:#fff1e6;font-family:Georgia,serif;font-size:19px;line-height:1;opacity:.8}.hero-suits span:nth-child(2),.hero-suits span:nth-child(3){color:#ffb4c3}
+.hero-art{position:relative;min-height:320px;display:flex;align-items:center;justify-content:center;z-index:1;min-width:0}.hero-wheel{width:min(360px,110%);max-width:none;transform:rotate(-14deg);filter:drop-shadow(0 22px 25px #56051b77);position:relative;z-index:1}.hero-floating-diamond{position:absolute;right:0;top:-10px;font-family:Georgia,serif;font-size:84px;line-height:1;color:#ffe8e225;transform:rotate(12deg)}
+.hero .wheel-card{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;position:absolute;right:-12px;bottom:5px;z-index:2;min-height:0;width:180px;max-width:100%;height:auto;aspect-ratio:auto;outline:0;border:1px solid #fff2e61a;border-radius:14px;padding:16px 19px;background:#200d18e8;backdrop-filter:blur(14px);box-shadow:0 15px 35px #4c051e44;text-align:left;color:#fff0e4}.hero .wheel-card:before{content:none}.wheel-card .wheel-number{font-family:Georgia,serif;font-size:32px;font-weight:400;letter-spacing:-.04em;line-height:1;color:#fff0e4}.wheel-card p{margin:8px 0 0;font-size:8px;line-height:1.7;letter-spacing:.07em;text-transform:uppercase;color:#efcdd4}.wheel-card small{display:none}
+.numeric-click-help{font-size:10px;line-height:1.8;color:#b19da6;padding:20px 0 0;margin:20px 0 0;border-top:1px solid #ffffff0b}
+
+/* Open navigation: no bevels, double frames or forum-style tab boxes. */
+.tabbed-workflow{padding-top:16px}.workflow-tab-list{gap:10px!important;border-bottom:1px solid #ffffff12!important}
+.workflow-tab{position:relative;display:flex!important;align-items:center;justify-content:center;gap:9px;background:transparent!important;color:#bfa9b3!important;border:0!important;border-radius:0!important;box-shadow:none!important;font-size:13px!important;font-weight:500!important;padding:20px 12px!important;min-height:64px;letter-spacing:0;transition:color .15s}
+.workflow-tab:hover{background:transparent!important;color:#fff0e4!important;border:0!important}.workflow-tab-selected{background:transparent!important;color:#fff1e7!important;border:0!important;box-shadow:none!important}
+.workflow-tab-selected:after{content:'';position:absolute;bottom:-1px;left:16%;right:16%;height:3px;border-radius:3px;background:#ec3f62}
+#workflow-tabs-tab-settings:before{content:'◈'}#workflow-tabs-tab-systems:before{content:'♠'}#workflow-tabs-tab-track:before{content:'↗'}#workflow-tabs-tab-practice:before{content:'◉'}#workflow-tabs-tab-tools:before{content:'✦'}
+#workflow-tabs .workflow-tab:before{font-family:Georgia,serif;font-size:21px;font-weight:400;color:#d9617b;line-height:1}
+.workflow-tab:focus-visible{outline:2px solid #f5a2b7;outline-offset:-3px}
+.tabbed-workflow>.workflow-tab-shell{position:sticky;top:0;z-index:20;background:#100b0ff5;padding:0;backdrop-filter:blur(16px)}
+.tabbed-subsections{margin-top:20px}.tabbed-subsections .workflow-tab-list,#session-view .workflow-tab-list{border:0!important;gap:6px!important;background:#ffffff04;padding:5px;border-radius:11px}
+.tabbed-subsections .workflow-tab,#session-view .workflow-tab{background:transparent!important;color:#c1aeb8!important;border:0!important;border-radius:7px!important;font-size:12px!important;font-weight:500!important;padding:12px 16px!important;min-height:42px;box-shadow:none!important}
+.tabbed-subsections .workflow-tab-selected,#session-view .workflow-tab-selected{background:#8f203e!important;color:#fff0e7!important;border:0!important;box-shadow:none!important}.tabbed-subsections .workflow-tab-selected:after,#session-view .workflow-tab-selected:after{content:none}
+.tabbed-subsections [role='tabpanel']{padding-top:26px}
+
+/* Forms, controls and panels use one consistent set of dark surfaces. */
+.settings-step,.system-picker,.next-step,.tools-step,.practice-section,.practice-mode-panel-free{padding-top:25px}
+.settings-step .scenario-panel,.panel{border-color:var(--room-line)}
+.settings-step .scenario-panel{padding:24px 26px 26px;background:radial-gradient(ellipse at 0 0,#40202c55,transparent 65%),#1b1319;border:1px solid #ffffff08;border-radius:16px;box-shadow:none}
+.settings-step .input-grid{gap:22px 20px}.field{color:var(--room-soft);font-size:11px;line-height:1.6;letter-spacing:.025em}.field>span,.field>label{color:var(--room-soft)}.field small{color:var(--room-soft);font-size:10px}
+.dash-input-container,.scenario-panel .dash-input-container{background:var(--room-bg);border:1px solid #ffffff1c;border-radius:8px;height:46px;color:var(--room-ivory)}
+.field input,.scenario-panel input.dash-input-element,.free-instructions input,.number-label input{background:var(--room-bg);color:var(--room-ivory);font-weight:500;border-color:#74615e;font-size:16px;font-variant-numeric:tabular-nums}
+.dash-input-container .dash-input-element{background:transparent;border:0!important;color:var(--room-ivory)}
+.dash-input-container input:invalid{color:#ffb1bd}
+.dash-input-stepper,.scenario-panel .dash-input-stepper{background:#292026;color:var(--room-ivory);border-color:var(--room-line)!important;font-weight:400}
+.dash-input-stepper:hover,.scenario-panel .dash-input-stepper:hover{background:#582337;color:#fff8ed}
+.dash-input-container:focus-within{border-color:var(--room-bright)}
+.Select-control{background:var(--room-bg);border:1px solid #74615e;color:var(--room-ivory)}.Select-value-label{color:var(--room-ivory)!important}
+input,textarea{accent-color:var(--room-red)}input::placeholder,textarea::placeholder{color:#a99d97;opacity:1}
+.settings-summary,.settings-progress:not(:empty){background:linear-gradient(90deg,#35202a88,transparent);border-left:2px solid #c77989;color:var(--room-soft);padding:14px 17px;font-size:11px}
+.wheel-rules{border-color:var(--room-line);background:#0e0d10;padding:17px 20px;color:var(--room-soft)}.wheel-rules strong{color:var(--room-ivory)}
+.primary{background:#ce2447;color:#fff4e8;border:1px solid #ce2447;border-radius:8px;box-shadow:0 8px 25px #a80d321c;letter-spacing:.065em;font-weight:600;transition:background .15s,box-shadow .15s}
+.primary:hover{background:#e03759;color:#fff6eb;box-shadow:0 10px 30px #a80d3233}
+.secondary,.guide-close,.free-remove{background:#201a20;color:var(--room-ivory);border:1px solid #ffffff22;border-radius:7px;font-weight:500;letter-spacing:.02em}
+.secondary:hover,.guide-close:hover,.free-remove:hover{background:#33232e;border-color:var(--room-ivory)}
+.text-button,.guide-button{color:var(--room-bright);background:transparent}.guide-button:hover{color:var(--room-ivory)}
+.guide-button,.record-buttons button,.session-log-heading button,.practice-controls button{letter-spacing:.025em}
+#scenario-error,#portfolio-error,.error{color:#ffb1bd}
+
+/* System cards: typographic hierarchy and an ivory hairline instead of hard blocks. */
+.system-options{gap:14px}.system-option{background:#22151d;color:var(--room-ivory);border:1px solid #ffffff09;border-radius:13px;padding:22px;min-height:140px;box-shadow:none}.system-symbol{position:absolute;right:20px;top:20px;color:#ed667e;font-family:Georgia,serif;font-size:25px;line-height:1}.system-name{display:block;padding-right:28px}
+.system-option:hover{background:#2b1d26;border-color:var(--room-edge)}
+.system-option.selected{background:linear-gradient(135deg,#671d35,#311622);border:1px solid #d75473;padding:22px;box-shadow:none}
+.system-option strong{font-family:Georgia,serif;font-size:20px;font-weight:400;line-height:1.25;letter-spacing:-.02em}.system-option small{font-size:11px;line-height:1.7;color:var(--room-soft);margin-top:12px}
+.system-option .system-risk-tag{font-size:11px;font-weight:400;color:#e0a6b0;line-height:1.6;margin-top:10px}
+.system-preview,.roulette-definition,.strategy-dialog{background:#211b22;color:var(--room-ivory);border-color:#a4868b;border-top-color:#cf788b;box-shadow:0 16px 60px #000b;font-family:'Avenir Next','Segoe UI',Arial,sans-serif}
+.system-preview .preview-label,.roulette-definition h3{color:var(--room-ivory)}.preview-footnote,.guide-examples,.guide-glossary{border-color:var(--room-line)}
+.roulette-definition p,.roulette-definition li{color:var(--room-ivory)}.roulette-definition img{background:#f5eee3;border-color:#8d7874}.definition-close{background:#211b22;color:var(--room-ivory)}
+.roulette-term:hover,.roulette-term:focus-visible{color:#ffbfcc;outline-color:var(--room-bright)}
+#roulette-glossary{border-color:var(--room-line)}
+.strategy-modal{background:#070609d9;backdrop-filter:blur(5px)}.strategy-dialog{border:1px solid #8e7279;padding:30px 38px}.strategy-dialog h2{font-size:32px}.guide-close{font-size:12px}
+
+/* Results and risks remain conspicuous and readable within the new palette. */
+.winner-card,.next-action,.system-risk-profile,.practice-bets,.free-suggestion{background:linear-gradient(140deg,#2b1722,#1b1319 70%);border:1px solid #ffffff0c;border-radius:14px;box-shadow:none}
+.winner-card{padding:27px}.winner-card h2,.next-action h3,.risk-body h3{font-weight:400}
+.metric{border-color:var(--room-line)}.metric-label{color:var(--room-soft);font-weight:500;letter-spacing:.09em}.metric strong{font-weight:400;color:var(--room-ivory);letter-spacing:-.03em}.metric:first-child strong{color:#f2a6b5}
+.live-status{gap:12px}.live-status>div,.practice-stat{background:#271620;border:0;border-radius:11px;padding:16px 18px}
+.live-status strong,.practice-stat strong{font-family:'Avenir Next',Arial,sans-serif;color:var(--room-ivory);font-weight:400;letter-spacing:-.04em;font-size:29px;font-variant-numeric:tabular-nums}.live-status small,.practice-stat small{color:var(--room-soft);font-weight:400;letter-spacing:.08em}
+.system-risk-profile{background:#171619;border-top-color:#bc7886}.risk-body{border-top:1px solid var(--room-line)}.risk-example,.risk-metrics,.even-choice-picker,.session-log,.number-entry,.practice-system-intro,.session-log-body{border-color:var(--room-line)}
+.record-button{background:#231b23;color:var(--room-ivory);border:1px solid #8f7478}.record-win{background:#e9dfd0;color:#181317;border-color:#e9dfd0}.record-loss{background:#421d2b;border-color:#c77889;color:#ffe9ed}
+.next-step>.button-row{background:transparent}.even-choice-picker{background:#151216}.even-choice-picker legend{color:var(--room-ivory);font-weight:500}.even-choice-options input{accent-color:#cd647b}
+.stop-action,.stop-note{border-color:#d48192;color:var(--room-ivory)}
+table{color:var(--room-ivory);font-size:12px}thead th{background:#272027;color:var(--room-soft);font-size:10px;font-weight:500;letter-spacing:.06em;border-color:var(--room-line)}th,td{border-color:var(--room-line)}tbody tr:nth-child(even){background:#ffffff03}tbody tr:hover{background:#cd647b0b}
+.portfolio-controls,.recovery-section,.section-heading,.analyst-heading,.session-details{border-color:var(--room-line)}
+
+/* The playing room: obsidian felt, ivory chips and oxblood pockets. */
+.practice-play-grid{gap:32px}.practice-wheel-column{padding-top:8px}.practice-controls{gap:10px}.practice-controls button{font-size:11px;padding:13px 17px}.practice-notice{color:var(--room-soft);border-left:2px solid var(--room-line);padding-left:13px}
+.practice-wheel{margin-bottom:15px;border:1px solid #65504f;outline:1px solid #423337;outline-offset:7px;box-shadow:0 20px 55px #0009,0 0 70px #7a183b15}
+#practice-disc,#free-disc{box-shadow:none}
+.practice-pointer{border-top-color:var(--room-ivory);filter:drop-shadow(0 2px 2px #000)}.practice-ball{background:#fff8e8;border-color:#554247;box-shadow:0 1px 4px #0008}
+.practice-pocket{color:var(--room-ivory);font-family:Georgia,serif;font-size:22px;font-weight:400}.practice-pocket .pocket-badge{font-family:inherit}
+.pocket-badge,.pocket-chip{border-color:#d3c2b0}.pocket-badge.red,.pocket-chip.red,.practice-number.red{background:#9f233d;color:#fff3e7}.pocket-badge.black,.pocket-chip.black,.practice-number.black{background:#020202;color:#fff3e7}.pocket-badge.zero,.pocket-chip.zero,.practice-number.zero{background:#eee3d3;color:#19131a}
+.practice-number{border-color:#b3a08d66}.practice-table{border-color:var(--room-line);background:#291b22;padding:8px}.practice-number.covered{outline-color:#ffa8bc}
+.practice-spin{font-size:15px;letter-spacing:.08em;min-height:54px}
+.practice-bets{padding:23px}.practice-bets h3{font-size:28px}.practice-bets small,.practice-system-intro small,.practice-help{color:var(--room-soft)}.practice-system-intro strong{font-weight:500;color:var(--room-ivory)}.practice-system-help{border-top:1px solid var(--room-line);padding-top:13px}
+.free-spin-odds{background:#671c354d;border:1px solid #f26b8733;border-radius:11px;padding:17px}.free-win-main strong{color:#ffb7c8;font-weight:400}.free-spin-odds p,.free-spin-odds small{color:#d9cbd0}
+.free-suggestion{padding:20px}.free-suggestion h4{font-family:Georgia,serif;font-weight:400;font-size:19px}.free-suggestion small{color:var(--room-soft)}
+.free-system-picker,.free-more{border-color:var(--room-line)}.free-system-picker summary,.free-more summary{color:var(--room-ivory);font-weight:500}.free-instructions h3{font-size:22px;font-weight:400}
+.free-table-wrap{background:linear-gradient(145deg,#2b1922,#1c151d);border:1px solid #b8446355;border-radius:12px;box-shadow:none;padding:14px 12px;margin:22px 0}
+.free-table-cell{background:#261923;color:#f1e8da;border-color:#b7a394;font-weight:500;outline-color:#1a1119}
+.free-number-board .free-table-cell{border-color:#cfbfa9;outline-color:#46343b}
+.free-table-cell.red{background:#8d203b;color:#fff1e5}.free-table-cell.black{background:#141014;color:#fff1e5}.free-table-cell.zero{background:#e7dac9;color:#171117}
+.free-table-cell small,.free-inside-target small{background:#f2e8d8;color:#21151c;border-color:#b9516b;font-weight:600}
+.free-table-cell.has-bet{outline-color:#f0bac7}.free-table-cell.is-preview{outline-color:#ffbbcd;box-shadow:inset 0 0 0 2px #f0e0cf}.free-streets .free-table-cell{background:#32202b;color:#e8d9cb;border-top-color:#b69b92}
+.free-inside-target:after{background:#eee0ce;border-color:#201018}.free-inside-target:hover:after,.free-inside-target:focus-visible:after,.free-inside-target.has-bet:after{background:#d95275;box-shadow:0 0 0 2px #ffefdc}
+.free-table-preview{border-left-color:#bc788b;color:var(--room-ivory);background:#0e0b0f55}.free-table-wrap>small{color:var(--room-soft)}.free-slip li,.free-odds{border-color:var(--room-line)}.free-odds strong{color:#ffc0ce}
+
+/* The analyst and educational material share the same room lighting. */
+.thread{border-color:var(--room-line);background:#121013;padding:25px 20px}.bubble{font-size:14px;line-height:1.7;padding:17px 19px}.bubble.assistant{background:#211b22;color:var(--room-ivory);border-color:#6e555f}.bubble.user{background:#682039;color:#fff0e6;border:1px solid #a94d68}
+.composer{background:#171217;border:1px solid #715462}.composer textarea{background:#171217;color:var(--room-ivory);font-size:14px}.composer button{font-size:11px;letter-spacing:.08em;min-width:150px}.composer textarea:disabled{color:var(--room-soft)}.share-session{color:var(--room-soft);line-height:1.7}.dots{border-color:var(--room-line)}.dots span{background:#d78095}
+.bubble pre,.bubble code,pre{background:#100d11;color:#f0d9df;border-color:var(--room-line)}.bubble details{border-color:var(--room-line)}
+.page>footer{color:var(--room-soft);border-color:var(--room-line);font-size:10px;letter-spacing:.05em;padding-top:25px;margin-top:30px}
+
+/* Lounge finish: a calm type scale, generous spacing and champagne hairlines. */
+:root,body{--room-champagne:#c9b69a;--room-champagne-line:rgba(201,182,154,.23);--room-display:'Baskerville','Iowan Old Style','Palatino Linotype',Georgia,serif;--room-body:'Avenir Next','Segoe UI',Arial,sans-serif;--room-bg:#100d0f;--room-surface:#1a1517;--room-soft:#c9c0b7}
+html,body{font-family:var(--room-body);font-size:15px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--room-display);text-wrap:balance}
+h2{font-size:clamp(30px,3vw,40px);line-height:1.14;letter-spacing:-.025em;margin-bottom:22px}
+h3{font-size:26px;line-height:1.25;letter-spacing:-.015em}
+p,li{line-height:1.75}.beginner-intro{font-size:14px;max-width:78ch}.small-note{font-size:12px;line-height:1.7}.field{font-size:12px;letter-spacing:0}.field small{font-size:11px;line-height:1.6}
+button,input,textarea{font-family:var(--room-body)}
+.brand-lockup strong,.wheel-card .wheel-number,.system-option strong,.free-suggestion h4,.practice-pocket{font-family:var(--room-display)}
+.brand-lockup small{color:var(--room-champagne);letter-spacing:.28em}
+.topbar{border-bottom-color:var(--room-champagne-line)}
+.logo-mark{box-shadow:0 0 0 4px #ce24470c,0 0 0 5px var(--room-champagne-line)}
+.eyebrow{color:var(--room-champagne);letter-spacing:.2em}
+.hero{margin-top:32px;margin-bottom:18px;padding:44px 48px;background:radial-gradient(ellipse at 88% 0,#d93651 0,transparent 48%),linear-gradient(112deg,#84152e 0,#b51d3c 58%,#7c1029 100%)}
+.hero-copy{font-size:15px;max-width:43ch;line-height:1.85}.hero .wheel-card{border-color:#d8c4a638}.hero-suits{gap:22px;opacity:.7}
+.hero-cta{border:1px solid #dfc9ac;font-size:13px;padding:15px 20px}.hero-link{font-size:13px}
+.workflow-tab-list{border-bottom-color:var(--room-champagne-line)!important}
+#workflow-tabs .workflow-tab:before{color:var(--room-champagne);font-size:18px}
+.workflow-tab-selected:after{height:2px;background:#df3f5d}
+.tabbed-subsections{margin-top:28px}.tabbed-subsections [role='tabpanel']{padding-top:32px}
+.settings-step,.system-picker,.next-step,.tools-step,.practice-section,.practice-mode-panel-free{padding-top:32px}
+.settings-step .scenario-panel{padding:32px;background:linear-gradient(125deg,#2c1b2144,transparent 65%),#191416;border-color:var(--room-champagne-line)}
+.settings-step .input-grid{gap:28px 24px}.field{gap:10px}
+.dash-input-container,.scenario-panel .dash-input-container{border-color:#c9b69a38}.dash-dropdown{border-color:#c9b69a55}
+.primary{letter-spacing:.025em;font-size:13px;padding:15px 20px}.secondary{font-size:12px;letter-spacing:.015em;padding:13px 16px}
+.secondary:hover,.guide-close:hover,.free-remove:hover{border-color:var(--room-champagne)}
+.settings-summary,.settings-progress:not(:empty){border-left-color:#c9b69a70;background:linear-gradient(90deg,#c9b69a09,transparent);font-size:12px;padding:15px 19px;line-height:1.8}
+.system-options{gap:20px}.system-option,.system-option.selected{padding:26px;min-height:158px}.system-option{background:linear-gradient(140deg,#281b21,#1c161a);border-color:#c9b69a15}
+.system-option strong{font-size:23px;line-height:1.25}.system-option small{font-size:12px;margin-top:15px}.system-option .system-risk-tag{font-size:12px;margin-top:12px;color:#d8b7bd}
+.system-option:hover{border-color:#c9b69a77;background:#2b1e24}.system-option.selected{background:linear-gradient(135deg,#581e30,#2c1820);border-color:#cd8d9b}
+.system-symbol{color:var(--room-champagne);font-size:22px;right:23px;top:25px;opacity:.85}
+.metric strong,.live-status strong,.practice-stat strong,.free-win-main strong{font-family:var(--room-body);font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.025em}
+.metric-grid{gap:28px}.metric-label,.practice-stat small,.live-status small{font-size:10px;letter-spacing:.1em;line-height:1.6}
+.live-status>div,.practice-stat{background:linear-gradient(125deg,#281b20,#1d171a);border:1px solid #c9b69a14;padding:20px 22px;border-radius:12px}
+.live-status strong,.practice-stat strong{font-size:30px;line-height:1.2}
+.winner-card,.next-action,.system-risk-profile,.practice-bets,.free-suggestion{border-color:#c9b69a22;padding:28px}
+.practice-bets h3{font-size:30px}.practice-play-grid{gap:44px}.practice-controls{gap:12px;margin:24px 0 18px}.practice-notice{font-size:12px;line-height:1.7}
+.practice-wheel{border-color:#c9b69a66;outline-color:#c9b69a22;box-shadow:0 18px 50px #0008,0 0 55px #9b183216}
+.free-play-grid{grid-template-columns:minmax(270px,.8fr) minmax(0,1.2fr);gap:36px 56px;padding-top:24px}
+.free-play-grid .practice-wheel{width:min(340px,100%)}.free-play-grid .practice-action-column{max-width:none}
+.free-play-grid .practice-stats{gap:14px;margin-bottom:26px}
+.free-instructions h3{font-size:25px;margin-bottom:20px}.free-instructions>.field{max-width:260px}.free-instructions>.small-note{max-width:65ch}
+.free-spin-odds{margin-top:24px;border-color:#c9b69a29;background:linear-gradient(110deg,#441c2b88,#24171d);padding:22px 24px}
+.free-win-main{align-items:baseline;gap:20px}.free-win-main small{font-size:12px;letter-spacing:.02em}.free-win-main strong{font-size:32px;color:var(--room-ivory)}
+.free-table-stage,.free-betting-footer{grid-column:1/-1;min-width:0}
+.free-betting-footer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:32px;align-items:start}.free-betting-footer .free-suggestion{margin:0}.free-betting-footer .free-more{margin-top:24px}.free-betting-footer .practice-bets h3{font-size:27px;margin-bottom:24px}.free-betting-footer .practice-spin{font-size:14px}
+
+/* Full-width burgundy felt. Number geometry and split/corner targets stay exact. */
+.free-table-wrap{position:relative;padding:26px 26px 22px;margin:0;border:1px solid #c9b69a66;border-radius:20px;background:radial-gradient(ellipse at 50% 0,#67233655,transparent 75%),repeating-linear-gradient(20deg,#ffffff02 0,#ffffff02 1px,transparent 1px,transparent 4px),#28131b;box-shadow:inset 0 0 0 6px #100b0f66,inset 0 0 60px #0003,0 18px 48px #0003}
+.free-table-masthead{display:flex;align-items:center;gap:12px;min-width:640px;padding:0 4px 22px;color:var(--room-champagne)}
+.free-table-masthead>span:first-child{font-family:var(--room-display);font-size:25px;line-height:1}.free-table-masthead strong{font-size:10px;letter-spacing:.24em;font-weight:500}.free-table-masthead>span:last-child{margin-left:auto;font-family:var(--room-display);font-size:20px;font-style:italic;letter-spacing:0;color:#e3d6c4}
+.free-table-main,.free-dozens,.free-outside{min-width:640px}
+.free-table-main .free-zeros,.free-table-main .free-columns{flex-basis:54px}
+.free-table-cell{border-color:#d8cbb49c;background:#36202a;color:#f1e8da;font-family:var(--room-body);font-size:12px;font-weight:500;min-height:50px}
+.free-number-board .free-table-cell{font-family:var(--room-display);font-size:23px;line-height:1;border-color:#e6dcc282;outline:0}
+.free-table-cell.red{background:linear-gradient(135deg,#a32643,#7d1931);color:#fff1e5}.free-table-cell.black{background:linear-gradient(135deg,#20191d,#130f12);color:#fff1e5}.free-table-cell.zero{background:linear-gradient(140deg,#e8dcc8,#cbb99d);color:#23171c;font-family:var(--room-display);font-size:23px}
+.free-columns .free-table-cell{font-size:11px;background:#321d25}.free-streets .free-table-cell{font-family:var(--room-body);font-size:10px;background:#331b25;border-top-color:#c9b69a80;color:#e2d2bb}
+.free-outside .free-table-cell,.free-dozens .free-table-cell{letter-spacing:.08em;font-size:12px;min-height:50px}
+.free-table-cell:hover:not(:disabled),.free-table-cell:focus-visible,.free-table-cell.is-preview{box-shadow:inset 0 0 0 2px #f2dfbc;outline-color:var(--room-champagne)}
+.free-table-cell.red:hover:not(:disabled),.free-table-cell.red:focus-visible{box-shadow:inset 0 0 0 2px #f2dfbc}
+.free-table-cell.has-bet{outline:1px solid #ecd1a4;outline-offset:-3px}
+.free-table-cell small,.free-number-board .free-table-cell small,.free-inside-target small{background:#791e37;color:#fff1df;border:2px dashed #e2cba5;border-radius:20px;font-family:var(--room-body);font-variant-numeric:tabular-nums;letter-spacing:0;font-size:10px;font-weight:600;line-height:1.2;padding:3px 5px;box-shadow:0 2px 6px #0005;white-space:nowrap}
+.free-number-board .free-table-cell.has-bet>span{transform:translateY(-9px)}
+.free-number-board .free-table-cell small{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);font-size:9px;padding:2px 4px}
+.free-inside-target small{font-size:9px;padding:3px 4px;min-width:25px;z-index:6}
+.free-inside-target:after{background:#d7c6aa;border-color:#45202b}.free-inside-target:hover:after,.free-inside-target:focus-visible:after,.free-inside-target.has-bet:after{background:#b12b49;box-shadow:0 0 0 2px #ead7b6}
+.free-table-preview{border-left:1px solid #c9b69a8c;background:#140b102b;color:#e8ddce;font-size:12px;line-height:1.7;padding:10px 14px;margin-top:20px;min-width:600px}
+.free-table-wrap>small{font-size:11px;color:#c7b7b1;max-width:85ch;margin-top:14px}
+.free-slip li{padding:14px 0;border-color:#c9b69a25;font-variant-numeric:tabular-nums}.free-odds{padding-top:18px;border-color:#c9b69a25}
+.system-option,.secondary,.free-table-cell,.hero-cta{transition:background .16s,border-color .16s,box-shadow .16s}
+@media(max-width:900px){.free-play-grid{gap:30px;grid-template-columns:minmax(240px,.8fr) minmax(0,1.2fr)}.free-play-grid .practice-stat{padding:15px}.free-play-grid .practice-stat strong{font-size:26px}.free-play-grid .practice-wheel{width:min(290px,100%)}.free-betting-footer{gap:24px}.free-table-wrap{padding:22px 20px}.system-options{gap:15px}}
+@media(max-width:760px){h2{font-size:31px}h3{font-size:25px}.hero-copy{font-size:14px}.system-option,.system-option.selected{min-height:145px}.system-option small,.system-option .system-risk-tag{font-size:12px}.settings-step .input-grid{gap:23px 18px}.free-play-grid{grid-template-columns:1fr;gap:28px}.free-play-grid .practice-wheel{width:min(280px,85%)}.free-betting-footer{grid-template-columns:1fr}.free-table-wrap{border-radius:14px;padding:22px 16px}.free-table-masthead{padding-bottom:20px}.free-play-grid .practice-action-column{width:100%}.free-instructions>.field{max-width:none}.free-play-grid .practice-stats{margin-bottom:25px}.free-table-stage{scroll-margin-top:90px}.free-instructions h3{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.system-option,.secondary,.free-table-cell,.hero-cta{transition:none}}
+@media(max-width:1050px){.hero{grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:14px;padding:30px;min-height:335px}.hero h1{font-size:62px}.hero-art{min-height:300px}.hero-wheel{width:310px}.hero .wheel-card{right:-6px;bottom:0;width:156px;padding:14px 16px}.wheel-card .wheel-number{font-size:28px}.hero-actions{gap:16px}.hero-cta{padding:13px 16px}.settings-step .scenario-panel{padding:23px}.system-option strong{font-size:19px}}
+@media(max-width:760px){.topbar{height:75px}.topbar>.badge{font-size:6px;letter-spacing:.05em;padding:4px}.brand-lockup strong{font-size:24px}.brand-lockup small{font-size:6px}.logo-mark{width:32px;height:32px}.hero{display:block;min-height:300px;padding:30px 25px;border-radius:17px;margin-top:20px}.hero-text{padding:0;max-width:410px}.hero h1{font-size:52px;max-width:330px}.hero-copy{font-size:13px;max-width:310px}.hero-art{position:absolute;inset:0;min-height:0;z-index:0;opacity:.17;pointer-events:none}.hero-wheel{position:absolute;width:340px;right:-190px;bottom:-100px}.hero .wheel-card,.hero-floating-diamond{display:none}.hero-suits{margin-top:22px}.hero-actions{gap:20px}.workflow-tab{font-size:11px!important;padding:16px 7px!important;gap:6px}#workflow-tabs .workflow-tab:before{font-size:17px}.workflow-tab-list{gap:1px!important}.system-option{padding:17px}.system-option.selected{padding:17px}.system-option strong{font-size:18px}.system-symbol{right:15px;top:16px;font-size:21px}.settings-step .scenario-panel{padding:20px 16px}.practice-controls>button{padding:12px 10px}.settings-step .input-grid{gap:20px 14px}.free-table-wrap{padding:11px 9px}.live-status>div,.practice-stat{padding:12px}.practice-stat strong{font-size:26px}}
+@media(max-width:460px){.hero h1{font-size:46px}.hero-cta{font-size:11px}.hero-link{font-size:11px}.hero-suits{font-size:17px}.hero-actions{gap:16px}.hero .eyebrow{font-size:8px}.workflow-tab{flex:1 1 30%!important}.tabbed-subsections .workflow-tab{flex:1 1 40%!important}.system-name{padding-right:22px}}
+@media(prefers-reduced-motion:reduce){.workflow-tab,.primary{transition:none}}
+/* Dash dropdowns render their option list in a portal outside the field. */
+:root,body{--Dash-Text-Strong:#f1e8da;--Dash-Text-Weak:#c3b9b0;--Dash-Fill-Disabled:#29242a;--Dash-Shading-Strong:rgba(0,0,0,.55);--Dash-Shading-Weak:rgba(0,0,0,.25)}
+.dash-dropdown{color:var(--room-ivory);background:var(--room-bg);border-color:#74615e}
+.dash-dropdown-option,.dash-options-list-option-text,.dash-dropdown-value,.dash-dropdown-value-item{color:var(--room-ivory)}
+.dash-dropdown-option:hover,.dash-dropdown-option:focus-within{background:#3e2432;color:#fff2e7}
+.dash-dropdown-option:has(input:checked){background:#462234;color:#ffe5ed}
+.dash-dropdown svg{color:var(--room-soft)}
+.wheel-card:before{height:auto;background:none}
+
+/* Editorial casino typography: graceful display serifs and clean geometric UI. */
+:root,body{--room-display:'Cormorant Garamond','Baskerville',Georgia,serif;--room-body:'Jost','Avenir Next','Segoe UI',Arial,sans-serif}
+html,body{font-family:var(--room-body);font-weight:400;font-kerning:normal;text-rendering:optimizeLegibility}
+button,input,textarea,.dash-dropdown,.system-preview,.roulette-definition,.strategy-dialog{font-family:var(--room-body)}
+h1,h2,h3,.brand-lockup strong,.system-option strong,.free-suggestion h4,.practice-pocket,.wheel-card .wheel-number,.free-table-masthead>span:last-child{font-family:var(--room-display);font-weight:500;font-optical-sizing:auto}
+.hero h1{font-family:var(--room-display);font-size:clamp(52px,6.2vw,82px);font-weight:500;line-height:1.02;letter-spacing:-.025em}
+.hero h1 span{font-weight:400;font-style:italic;letter-spacing:-.02em}
+.hero-copy{font-size:16px;line-height:1.8;letter-spacing:.005em}
+.brand-lockup strong{font-size:33px;line-height:.95;letter-spacing:-.02em}.brand-lockup small{font-size:8px;letter-spacing:.25em}
+.logo-mark>span{font-family:var(--room-display);font-size:18px;font-weight:600;letter-spacing:-.04em}
+h2{font-size:clamp(34px,3.5vw,46px);line-height:1.12;letter-spacing:-.015em}
+h3{font-size:30px;line-height:1.2;letter-spacing:-.01em}
+.hero .wheel-number{font-size:36px;letter-spacing:-.025em}
+.system-option strong{font-size:26px;line-height:1.15;letter-spacing:-.005em}.system-option small{font-size:13px;line-height:1.6}.system-option .system-risk-tag{font-size:12px;line-height:1.65}
+.system-option .system-symbol,.hero-suits,.hero-floating-diamond,#workflow-tabs .workflow-tab:before{font-family:Georgia,serif}
+.free-suggestion h4{font-size:25px;line-height:1.2}.free-instructions h3,.free-betting-footer .practice-bets h3{font-size:29px;font-weight:500}
+.practice-bets h3{font-size:32px}.strategy-dialog h2{font-size:40px}
+.beginner-intro,.section-heading p:not(.eyebrow){font-size:15px;line-height:1.8;letter-spacing:.005em}
+.field{font-weight:500;font-size:13px}.field small,.small-note,.practice-notice,.settings-summary{font-weight:400}
+.field input,.scenario-panel input.dash-input-element,.free-instructions input,.number-label input,.metric strong,.live-status strong,.practice-stat strong,.free-win-main strong{font-family:var(--room-body);font-weight:500;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.015em}
+.metric strong,.live-status strong,.practice-stat strong{font-size:30px}
+.free-number-board .free-table-cell{font-family:var(--room-display);font-weight:500;font-size:28px;letter-spacing:0}
+.free-table-cell.zero{font-family:var(--room-display);font-weight:500;font-size:28px}
+.free-streets .free-table-cell{font-family:var(--room-body);font-size:11px}.free-table-cell small,.free-inside-target small{font-family:var(--room-body)}
+.free-table-masthead>span:last-child{font-size:25px;line-height:1}.free-table-masthead strong{font-family:var(--room-body);font-size:11px;letter-spacing:.2em}
+.bubble,.composer textarea{font-family:var(--room-body);font-size:15px}.bubble code,.bubble pre,pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.system-preview h3,.roulette-definition h3{font-family:var(--room-display);font-size:28px;line-height:1.2;font-weight:500}
+@media(max-width:1050px){.hero h1{font-size:66px}.system-option strong{font-size:24px}}
+@media(max-width:760px){.hero h1{font-size:58px;max-width:370px}.brand-lockup strong{font-size:29px}.brand-lockup small{font-size:7px}.hero-copy{font-size:15px}h2{font-size:36px}h3{font-size:28px}.system-option strong{font-size:24px}.practice-stat strong{font-size:27px}.free-table-masthead>span:last-child{font-size:23px}}
+@media(max-width:460px){.hero h1{font-size:51px}.brand-lockup strong{font-size:28px}.hero-copy{font-size:14px}.system-option strong{font-size:23px}.field{font-size:12px}.strategy-dialog h2{font-size:34px}}
+
+/* Softer crimson lounge, with readable supporting text at every step. */
+:root,body{--room-soft:#f3e5db;--room-line:#80515d55;--room-red:#c82f50;--room-bright:#f4b2c0;--Dash-Text-Weak:#f3e5db;--Dash-Text-Secondary:#f3e5db;--Dash-Stroke-Strong:#946572;--Dash-Stroke-Weak:#80515d55}
+html,body{font-size:16px}
+body{background-color:#200c14;background-image:radial-gradient(ellipse at 85% 0,#bf234945,transparent 60%),radial-gradient(ellipse at 0 65%,#b8224140,transparent 65%)}
+.hero{border-radius:28px;background:radial-gradient(ellipse at 88% 0,#f15a7188,transparent 60%),linear-gradient(115deg,#ad1f40,#d03252 58%,#9c1d3c);box-shadow:0 20px 60px #650d202e}
+.hero .eyebrow{font-size:12px;letter-spacing:.16em}.hero-copy{font-size:18px;line-height:1.8}
+.hero-cta{border-radius:12px;font-size:15px;padding:16px 21px}.hero-link{font-size:15px}.hero .wheel-card{border-radius:18px;border-color:#f1d7bc2b;background:#2a1421eb}
+.wheel-card p{font-size:11px;letter-spacing:.035em;line-height:1.65}.hero .wheel-card{width:192px}
+.brand-lockup small{font-size:10px;letter-spacing:.2em}.topbar>.badge{font-size:11px;letter-spacing:.08em;color:#d6c4c5;white-space:normal;text-align:right;line-height:1.6}
+.eyebrow{font-size:12px;letter-spacing:.16em}.badge,.result-title .badge{font-size:12px;line-height:1.6;letter-spacing:.06em;border-radius:8px;white-space:normal}
+.beginner-intro,.section-heading p:not(.eyebrow),.analyst-heading p:not(.eyebrow){font-size:16px;line-height:1.8}
+.small-note,.numeric-click-help,.practice-notice,.settings-summary,.settings-progress:not(:empty),.wheel-rules,.wheel-rules small,.method-body,.share-session,.chat-starter,.stop-note,.error,.notice{font-size:14px;line-height:1.8;color:var(--room-soft)}
+.wheel-rules strong{font-size:15px}.settings-summary,.settings-progress:not(:empty){border-left:2px solid #cc718180;border-radius:0 12px 12px 0;background:linear-gradient(100deg,#73243b2a,#371c250c);padding:18px 20px}
+.settings-step .scenario-panel{border-radius:22px;border-color:#e5b6bc24;background:radial-gradient(ellipse at 0 0,#ab2d4a40,transparent 75%),linear-gradient(135deg,#4e1a2c,#2c111e);box-shadow:0 14px 42px #0002}
+.settings-step .input-grid{gap:28px 24px}.field,.free-advisor-controls .field,.free-advanced .field,.practice-controls>.field,.number-label{font-size:15px;line-height:1.6}
+.field small,.number-entry>small,.metric small,.strategy-cell small,.distribution-panel>label,.portfolio-controls>label,.even-choice-picker small,.practice-system-intro small,.practice-coverage>small{font-size:13px;line-height:1.75;color:var(--room-soft)}
+.dash-input-container,.scenario-panel .dash-input-container{height:50px;border-radius:12px;border-color:#d89dadaa;background:#050505}
+.field input,.scenario-panel input.dash-input-element,.free-instructions input,.number-label input{font-size:18px}
+.dash-input-stepper,.scenario-panel .dash-input-stepper{background:#432332;color:#fff0e7}.dash-input-stepper:hover,.scenario-panel .dash-input-stepper:hover{background:#743047}
+.dash-dropdown,.Select-control{font-size:15px;border-radius:12px;border-color:#bd81916b;background:#080808}.field .dash-dropdown,.dash-dropdown-value,.dash-dropdown-value-item,.dash-options-list-option-text,.dash-dropdown-option{font-size:15px;line-height:1.6}
+.primary,.secondary,.practice-controls button,.composer button,.guide-close,.record-button{font-size:15px;border-radius:12px;letter-spacing:.015em;line-height:1.4}
+.primary{background:linear-gradient(125deg,#cc3655,#b02646);border-color:#db5f7966;box-shadow:0 8px 24px #a6173528}.primary:hover{background:linear-gradient(125deg,#df4867,#c43151);border-color:#ec8fa3}
+.secondary,.guide-close,.free-remove{background:#442332;border-color:#b87d8c44}.secondary:hover,.guide-close:hover,.free-remove:hover{background:#633048;border-color:#d7a9b5}
+.text-button,.guide-button,.winner-card>.guide-button{font-size:14px;line-height:1.6}.free-remove{font-size:13px;padding:9px 12px;border-radius:10px}
+.workflow-tab{font-size:15px!important;padding:20px 14px!important;color:#ddc7cd!important;line-height:1.5!important}
+.workflow-tab-selected{color:#fff1e7!important}.workflow-tab-selected:after{background:#ec607c;height:3px;border-radius:8px}
+.tabbed-workflow>.workflow-tab-shell{background:#310e1cf5}
+.tabbed-subsections .workflow-tab-list,#session-view .workflow-tab-list{background:#55203522;border-radius:15px;gap:8px!important;padding:6px}
+.tabbed-subsections .workflow-tab,#session-view .workflow-tab{font-size:14px!important;min-height:48px;border-radius:11px!important;color:#e2cbd2!important}
+.tabbed-subsections .workflow-tab-selected,#session-view .workflow-tab-selected{background:linear-gradient(120deg,#bc2d4e,#8f1d3a)!important;color:#fff4eb!important}
+.system-options{gap:22px}.system-option,.system-option.selected{border-radius:20px;padding:28px;min-height:178px;box-shadow:0 9px 30px #0002}
+.system-option{background:linear-gradient(135deg,#721f36,#431626);border-color:#dda5b323}.system-option:hover{background:linear-gradient(135deg,#8b2944,#5b1d31);border-color:#e0b3bd77}
+.system-option.selected{background:linear-gradient(135deg,#ae2a49,#721e36);border-color:#e4a0b1aa;box-shadow:0 10px 32px #8d173b22}
+.system-option small{font-size:15px;line-height:1.7;color:#e2d0ce;margin-top:17px}.system-option .system-risk-tag{font-size:14px;line-height:1.7;color:#e9b7c2;margin-top:14px}
+.system-symbol{top:28px;right:24px;color:#e0c7ae}.system-name{padding-right:30px}
+.system-preview,.roulette-definition,.strategy-dialog{border-radius:18px;border:1px solid #d29baa66;background:linear-gradient(140deg,#3b2130,#241a23);box-shadow:0 18px 55px #0008;font-size:15px;line-height:1.75}
+.system-preview{width:min(420px,calc(100vw - 32px))}.system-option .system-preview .preview-label,.preview-label,.definition-label{font-size:15px;line-height:1.6}
+.preview-footnote,.roulette-definition small,.message-usage,.trace,.trace pre{font-size:13px;line-height:1.7;color:var(--room-soft)}
+.roulette-definition{width:min(410px,calc(100vw - 24px));padding:22px}.roulette-definition p,.roulette-definition li{font-size:15px;line-height:1.75}.roulette-definition img{border-radius:10px}
+.strategy-dialog p,.strategy-dialog li,.guide-glossary p{font-size:15px;line-height:1.8}.strategy-dialog .small-note,.strategy-dialog .eyebrow,.guide-glossary strong{font-size:14px}
+.winner-card,.next-action,.system-risk-profile,.practice-bets,.free-suggestion{border-radius:20px;border-color:#d8a0b12b;background:linear-gradient(135deg,#77243d,#3c1728 80%);box-shadow:0 12px 36px #0002}
+.system-risk-profile{background:linear-gradient(130deg,#571c30,#321422)}.risk-body p,.risk-body li,.risk-body>strong,.risk-example,.winner-explanation,.bet-instructions small,.practice-system-intro p,.practice-system-help,.practice-system-help p,.practice-system-help li{font-size:15px;line-height:1.8}
+.practice-system-help summary,.practice-system-help h4,.free-system-picker summary,.free-more summary,summary{font-size:15px;line-height:1.7}
+.practice-bets>small,.free-suggestion small,.free-odds,.free-odds p,.free-odds small,.free-spin-odds p,.free-spin-odds>small,.free-win-main small,.practice-help,.system-risk-tag{font-size:14px;line-height:1.8}
+.metric-label,.practice-stat small,.live-status small{font-size:12px;letter-spacing:.055em;line-height:1.65;color:#e0cbd1}
+.live-status>div,.practice-stat{border-radius:16px;border-color:#d9a0b31e;background:linear-gradient(125deg,#6b213b,#3d1629);padding:20px 22px}
+table,.bubble table,.position-row{font-size:14px;line-height:1.65}thead th,th{font-size:12px;letter-spacing:.04em;color:#e1cbd1}thead th{background:#432531}th,td{padding:16px 12px}
+.free-spin-odds{border-radius:18px;border-color:#e490a330;background:linear-gradient(115deg,#9c2a4aa6,#5c2038);padding:24px}.free-win-main{flex-wrap:wrap}.free-spin-odds p,.free-spin-odds small{color:#e8d3d9}
+.free-table-wrap{border-radius:26px;border-color:#dfbba65c;background:radial-gradient(ellipse at 50% 0,#d63d6266,transparent 80%),repeating-linear-gradient(20deg,#ffffff02 0,#ffffff02 1px,transparent 1px,transparent 4px),#58192e;box-shadow:inset 0 0 0 5px #170d1340,inset 0 0 70px #0002,0 18px 48px #5a09251a}
+.free-table-cell{border-color:#eed4c377;background:#492736}.free-table-cell.red{background:linear-gradient(135deg,#d23e5c,#ad2746)}.free-table-cell.black{background:linear-gradient(135deg,#0b0b0b,#010101)}
+.free-table-cell:not(.free-number-board .free-table-cell){border-radius:4px}.free-columns .free-table-cell,.free-dozens .free-table-cell,.free-outside .free-table-cell{font-size:14px;letter-spacing:.04em;line-height:1.4}
+.free-streets .free-table-cell{height:54px;font-size:13px;line-height:1;background:#4b2435}
+.free-table-cell:disabled{opacity:.84;cursor:not-allowed}
+.free-table-cell small,.free-number-board .free-table-cell small,.free-inside-target small{font-size:12px;line-height:1.1;border-width:1px;padding:3px 5px;background:#932b47;color:#fff0df}
+.free-table-masthead strong{font-size:13px;letter-spacing:.14em}.free-table-preview{font-size:14px;line-height:1.7;border-radius:0 10px 10px 0;background:#1c101831}.free-table-wrap>small{font-size:13px;line-height:1.75;color:#e0c8cc}
+.practice-number{font-size:14px}.pocket-chip{font-size:15px}.free-slip li{font-size:15px;line-height:1.7}
+.thread{border-radius:18px;border-color:#b3758a44;background:#21151c}.bubble{border-radius:17px;padding:20px 23px;font-size:16px;line-height:1.8}.bubble.assistant{background:#35222e;border-color:#c08c9d44}.bubble.user{background:linear-gradient(125deg,#86324d,#5e263e);border-color:#d18b9f55}
+.composer{border-radius:16px;overflow:hidden;border-color:#c8869b70}.composer textarea{font-size:16px;padding:18px;background:#050505}.composer button{border-radius:12px;margin:7px}
+.page>footer{font-size:13px;letter-spacing:.015em;line-height:1.7;color:#d7c4c8}
+.error,#scenario-error,#portfolio-error{color:#ffc4d0}
+@media(max-width:1050px){.workflow-tab{font-size:14px!important;padding:18px 9px!important;gap:7px}.system-option,.system-option.selected{padding:24px}.system-options{gap:18px}.topbar>.badge{max-width:240px;font-size:10px}}
+@media(max-width:760px){html,body{font-size:16px}.hero{border-radius:22px}.hero-copy{font-size:16px}.hero-cta,.hero-link{font-size:14px}.hero .eyebrow{font-size:11px}.topbar>.badge{max-width:160px;font-size:9px}.brand-lockup small{font-size:9px}.workflow-tab{font-size:14px!important;padding:15px 9px!important;flex:1 1 30%!important;gap:7px}.tabbed-subsections .workflow-tab,#session-view .workflow-tab{font-size:14px!important;flex:1 1 40%!important}.system-option,.system-option.selected{padding:24px;min-height:174px}.system-option small{font-size:15px}.system-option .system-risk-tag{font-size:14px}.system-symbol{top:26px;right:22px}.settings-step .scenario-panel{padding:24px 20px;border-radius:18px}.field{font-size:15px}.field small{font-size:13px}.practice-controls>button{font-size:14px;padding:13px}.live-status>div,.practice-stat{padding:18px}.free-table-wrap{border-radius:20px;padding:24px 18px}.free-table-masthead strong{font-size:12px}.free-table-wrap>small{font-size:13px}.bubble{max-width:95%;padding:18px;font-size:16px}}
+@media(max-width:460px){.topbar{gap:12px}.topbar>.badge{max-width:125px;font-size:9px}.brand-lockup small{font-size:8px}.hero-actions{gap:18px}.hero .eyebrow{font-size:11px}.hero-cta{font-size:14px}.field{font-size:14px}.free-spin-odds{padding:20px}.primary,.secondary{font-size:14px}.composer{flex-wrap:wrap}.composer button{min-width:0}.system-option strong{font-size:25px}}
+
+/* Casino character: crimson velvet, suit seals and quiet decorative watermarks. */
+.topbar{background:linear-gradient(110deg,#4a1327,#230e19);border-bottom-color:#dc849744}
+.logo-mark{background:#dd3656;box-shadow:0 0 0 4px #df456025,0 0 0 5px #ebc8ac55}
+.hero-suits{gap:13px;margin-top:26px;opacity:1}
+.hero-suits span{display:inline-flex;align-items:center;justify-content:center;width:39px;height:39px;border:1px solid #f9cfbd55;border-radius:50%;background:#74142c3d;color:#ffe4d1;font-size:25px;box-shadow:0 5px 15px #5c102322}
+.hero-suits span:nth-child(2),.hero-suits span:nth-child(3){color:#ffd3c4;background:#e95a682b}
+.hero-floating-diamond{font-size:115px;right:-7px;top:-18px;color:#ffe4d12e}
+.hero-cta:before,.primary:before{content:'';display:inline-block;width:17px;height:19px;flex:none;background:url('/assets/casino-spade.svg') center/contain no-repeat;vertical-align:-.17em;margin-right:9px}
+.hero-cta:before{background-image:url('/assets/casino-diamond.svg');filter:brightness(.42) saturate(1.5);margin-right:-7px}
+.dash-input-stepper,.scenario-panel .dash-input-stepper{background:#6e213b}.dash-input-stepper:hover,.scenario-panel .dash-input-stepper:hover{background:#99334f}
+.secondary,.guide-close,.free-remove{background:#66243c;border-color:#d98ea05c}.secondary:hover,.guide-close:hover,.free-remove:hover{background:#86304c}
+.system-name{padding-right:48px}
+.system-symbol{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;right:23px;top:24px;border:1px dashed #efd0b18c;border-radius:50%;background:#9c2e4b66;color:#ffe5c9;font-size:26px;line-height:1;opacity:1;z-index:2;box-shadow:0 0 0 4px #e0b59b0b}
+.system-option:before{content:'';position:absolute;right:24px;bottom:20px;width:92px;height:92px;background:url('/assets/casino-spade.svg') center/contain no-repeat;opacity:.075;pointer-events:none}
+.system-option:nth-child(4n + 2):before{background-image:url('/assets/casino-roulette-seal.svg')}.system-option:nth-child(4n + 3):before{background-image:url('/assets/casino-diamond.svg')}.system-option:nth-child(4n):before{background-image:url('/assets/casino-club.svg')}
+.system-option>.system-name,.system-option>small,.system-option>.system-risk-tag{position:relative;z-index:1}
+.system-option small{color:#f1d9d6}.system-option .system-risk-tag{color:#f7d5df}.system-option.selected small,.system-option.selected .system-risk-tag{color:#fff1e6}
+.system-option.selected{border-color:#efb5c2c2;box-shadow:0 10px 34px #be244834}
+.settings-step{--room-symbol:url('/assets/casino-diamond.svg')}.system-picker{--room-symbol:url('/assets/casino-club.svg')}.next-step{--room-symbol:url('/assets/casino-spade.svg')}.practice-section,.practice-mode-panel-free{--room-symbol:url('/assets/casino-roulette-seal.svg')}.tools-step{--room-symbol:url('/assets/casino-diamond.svg')}
+:is(.scenario-panel,.system-picker,.next-step,.practice-section,.practice-mode-panel-free,.tools-step) h2:before{content:'';display:inline-block;width:27px;height:29px;margin-right:12px;vertical-align:-.05em;background:var(--room-symbol,url('/assets/casino-diamond.svg')) center/contain no-repeat;opacity:.9;pointer-events:none}
+#workflow-tabs .workflow-tab:before{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid #d797a64d;border-radius:50%;background:#8d244033;color:#f2c4ce;font-size:20px;flex:none}
+.tabbed-subsections .workflow-tab-selected,#session-view .workflow-tab-selected{box-shadow:0 6px 20px #ba25442b!important}
+.free-table-masthead>span:first-child{font-size:34px;color:#f8d4b7}
+.free-table-masthead:after{content:'';display:inline-block;width:52px;height:24px;flex:none;background-image:url('/assets/casino-roulette-seal.svg'),url('/assets/casino-club.svg');background-position:left center,right center;background-size:20px 23px;background-repeat:no-repeat;opacity:.8}
+.thread{background:#321322}.bubble.assistant{background:#4c1d32}.bubble.user{background:linear-gradient(125deg,#a52f4d,#72213e)}
+.page>footer:before{content:'';display:block;width:172px;height:30px;margin-bottom:22px;background-image:url('/assets/casino-spade.svg'),url('/assets/casino-roulette-seal.svg'),url('/assets/casino-diamond.svg'),url('/assets/casino-club.svg');background-position:0 center,48px center,96px center,144px center;background-size:24px 28px;background-repeat:no-repeat;opacity:.8}
+@media(max-width:1050px){#workflow-tabs .workflow-tab:before{width:26px;height:26px;font-size:18px}.system-symbol{right:20px;width:38px;height:38px}.system-name{padding-right:44px}}
+@media(max-width:760px){.hero-suits{gap:12px}.hero-suits span{width:35px;height:35px;font-size:23px}.system-symbol{top:22px;right:20px}.system-option:before{width:80px;height:80px}.hero-cta:before{width:15px}.primary:before{width:15px;margin-right:8px}:is(.scenario-panel,.system-picker,.next-step,.practice-section,.practice-mode-panel-free,.tools-step) h2:before{width:23px;height:25px;margin-right:10px}}
+
+/* The finished room: velvet walls, Deco ivory work and black lacquer accents. */
+:root,body{--room-champagne:#e9ddce;--room-champagne-line:rgba(241,232,218,.24);--room-ivory-line:rgba(241,232,218,.23);--room-deco-corners:url('/assets/casino-deco-tl.svg'),url('/assets/casino-deco-tr.svg'),url('/assets/casino-deco-bl.svg'),url('/assets/casino-deco-br.svg')}
+html{height:auto;min-height:100%;background:#97182f}
+body{height:auto;min-height:100vh;background-color:#97182f;background-image:url('/assets/casino-velvet.svg'),url('/assets/casino-diamond-pattern.svg'),radial-gradient(ellipse at 90% 0,#e9465160,transparent 65%),radial-gradient(ellipse at 0 70%,#b31d3440,transparent 60%);background-size:256px 256px,72px 96px,100% 100%,100% 100%;background-attachment:fixed}
+.topbar{background:linear-gradient(110deg,#070707,#0d0d0d 60%,#020202);border-bottom:1px solid var(--room-ivory-line);box-shadow:inset 0 1px 0 #fff2e80d}
+.hero{background-image:url('/assets/casino-velvet.svg'),radial-gradient(ellipse at 80% 0,#f4677780,transparent 65%),linear-gradient(115deg,#9c1b39,#c52949 58%,#891630);background-size:256px 256px,100% 100%,100% 100%;box-shadow:inset 0 0 0 1px #fff0e45e,0 22px 60px #10030b40}
+.hero:before{inset:14px;width:auto;height:auto;border:0;border-radius:0;z-index:3;background-image:var(--room-deco-corners);background-position:left top,right top,left bottom,right bottom;background-size:82px 82px;background-repeat:no-repeat;pointer-events:none}
+.hero:after{inset:0;width:auto;height:auto;border:0;border-radius:0;z-index:0;background:url('/assets/casino-diamond-pattern.svg') 0 0/72px 96px repeat;opacity:.55;pointer-events:none}
+.hero .wheel-card{background:linear-gradient(160deg,#ffffff0c,transparent 38%),linear-gradient(140deg,#0b0b0b,#000000);border:1px solid #f1e8da55;box-shadow:inset 0 1px 0 #fff8f115,0 14px 30px #12030c44}
+.hero-suits span{border-color:#f1e8da70;box-shadow:inset 0 1px 0 #fff5ed1c,0 5px 15px #41071930}
+.hero-cta{border-color:#fff0e49c;box-shadow:inset 0 1px 0 #fffaf18a,0 6px 18px #4a071d35}
+.logo-mark{border:3px solid transparent;background:linear-gradient(#9c2340,#7d1935) padding-box,repeating-conic-gradient(#f1e8da 0deg 12deg,#67162f 12deg 30deg) border-box;box-shadow:0 0 0 2px #f1e8da1f,0 4px 12px #0003}
+.tabbed-workflow>.workflow-tab-shell{background:linear-gradient(180deg,#070707,#030303);border-bottom:1px solid #f1e8da1a}
+.tabbed-subsections .workflow-tab-list,#session-view .workflow-tab-list{background:linear-gradient(180deg,#ffffff07,transparent 55%),#050505;border:1px solid #f1e8da24!important;box-shadow:inset 0 1px 0 #fff6e90c}
+.settings-step .scenario-panel{border:1px solid var(--room-ivory-line);background-color:#050505;background-image:var(--room-deco-corners),url('/assets/casino-velvet.svg'),linear-gradient(155deg,#fff7ed08,transparent 45%),linear-gradient(135deg,#101010,#020202);background-position:left 9px top 9px,right 9px top 9px,left 9px bottom 9px,right 9px bottom 9px,0 0,0 0,0 0;background-size:42px 42px,42px 42px,42px 42px,42px 42px,256px 256px,100% 100%,100% 100%;background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,repeat,no-repeat,no-repeat;box-shadow:0 12px 36px #0005}
+.dash-input-container,.scenario-panel .dash-input-container,.dash-dropdown,.Select-control{border-color:#f1e8da4d;box-shadow:inset 0 1px 0 #fff6ec0a}
+.system-option{border-color:var(--room-ivory-line);background-color:#050505;background-image:url('/assets/casino-velvet.svg'),linear-gradient(145deg,#ffffff06,transparent 45%),linear-gradient(135deg,#101010,#010101);background-size:256px 256px,100% 100%,100% 100%;box-shadow:inset 0 1px 0 #fff5ed10,0 9px 30px #0005}
+.system-option:hover{border-color:#e58b9e;background-color:#0b0b0b;background-image:url('/assets/casino-velvet.svg'),linear-gradient(135deg,#191919,#050505);background-size:256px 256px,100% 100%}
+.system-option.selected{border-color:#fff0dfb3;background-color:#a92342;background-image:url('/assets/casino-velvet.svg'),linear-gradient(135deg,#b72849,#7b1933);background-size:256px 256px,100% 100%;box-shadow:inset 0 0 0 4px #1b09111a,inset 0 1px 0 #fff7ed29,0 12px 32px #83152e40}
+.system-option:not(.selected) .system-symbol{background:#111111;border-color:#e7d7c080}
+.system-option.selected .system-symbol{border:3px solid transparent;background:linear-gradient(#62182e,#461326) padding-box,repeating-conic-gradient(#f1e8da 0deg 12deg,#94213d 12deg 30deg) border-box;box-shadow:0 0 0 2px #f1e8da1a,0 4px 12px #0003;color:#fff1df}
+.system-option:before{opacity:.065}
+.live-status>div,.practice-stat{background:linear-gradient(155deg,#ffffff0c,transparent 43%),linear-gradient(135deg,#0b0b0b,#000000);border:1px solid #f1e8da35;box-shadow:inset 0 1px 0 #fff6ef18,0 8px 24px #10020a2e}
+.practice-stat:first-child small:before,.live-status>.metric:first-child .metric-label:before{content:'';display:inline-block;vertical-align:-.28em;width:21px;height:21px;margin-right:8px;border:3px solid transparent;border-radius:50%;background:linear-gradient(#922342,#922342) padding-box,repeating-conic-gradient(#f1e8da 0deg 12deg,#3e1227 12deg 30deg) border-box;box-shadow:0 0 0 1px #f1e8da20}
+.metric-label,.practice-stat small,.live-status small{color:#e7dadc}
+.winner-card,.next-action,.system-risk-profile,.practice-bets,.free-suggestion,.free-spin-odds{border-color:var(--room-ivory-line);box-shadow:inset 0 1px 0 #fff6ed12,0 12px 34px #11030b26}
+.tabbed-subsections:has(> :is(#systems-view-parent,#practice-view-parent,#free-view-parent,#tools-view-parent)):before{content:'';display:block;width:min(440px,90%);height:30px;margin:24px auto;background:url('/assets/casino-club-divider.svg') center/contain no-repeat;pointer-events:none}
+.settings-step:after{content:'';display:block;width:min(440px,90%);height:30px;margin:34px auto 8px;background:url('/assets/casino-club-divider.svg') center/contain no-repeat;pointer-events:none}
+.free-table-wrap{border:7px solid transparent;padding:30px 28px 26px;background-image:var(--room-deco-corners),url('/assets/casino-velvet.svg'),radial-gradient(ellipse at 50% 0,#b8375755,transparent 85%),linear-gradient(#52182d,#3b1023),repeating-linear-gradient(110deg,#ad2845 0px,#ad2845 14px,#000000 14px,#000000 28px);background-position:left 9px top 9px,right 9px top 9px,left 9px bottom 9px,right 9px bottom 9px,0 0,0 0,0 0,0 0;background-size:42px 42px,42px 42px,42px 42px,42px 42px,256px 256px,100% 100%,100% 100%,auto;background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,repeat,no-repeat,no-repeat,repeat;background-origin:padding-box,padding-box,padding-box,padding-box,padding-box,padding-box,padding-box,border-box;background-clip:padding-box,padding-box,padding-box,padding-box,padding-box,padding-box,padding-box,border-box;box-shadow:0 0 0 1px #f1e8da7a,inset 0 0 75px #19071122,0 18px 42px #12020b40}
+.free-table-wrap:before{content:'';position:absolute;inset:7px;border:1px solid #f1e8da6b;border-radius:17px;pointer-events:none;z-index:0}
+.free-table-wrap:after{content:'';position:absolute;inset:12px;border:1px solid #f1e8da22;border-radius:13px;pointer-events:none;z-index:0}
+.free-table-wrap>*{position:relative;z-index:1}
+.free-table-masthead{padding-bottom:24px}.free-table-preview{border-left-color:#f1e8da78}
+.practice-wheel{border-color:#f1e8da8c;outline-color:#f1e8da2e;box-shadow:0 16px 48px #0e040b66,0 0 0 4px #9e254329}
+.thread{background:linear-gradient(155deg,#ffffff05,transparent 45%),linear-gradient(135deg,#090909,#000000);border-color:#f1e8da38;box-shadow:inset 0 1px 0 #fff6ed13}
+.bubble.assistant{background:linear-gradient(150deg,#ffffff05,transparent 45%),#0c0c0c;border-color:#f1e8da2e}.composer{border-color:#f1e8da50}
+.page>footer{border-top:1px solid #f1e8da24}
+.page>footer:before{width:min(460px,100%);height:34px;margin:0 auto 24px;background:url('/assets/casino-club-divider.svg') center/contain no-repeat;opacity:1}
+@media(max-width:1050px){.hero:before{background-size:64px 64px}.free-table-wrap{padding:28px 24px}}
+@media(max-width:760px){.hero:before{inset:10px;background-size:48px 48px}.hero:after{opacity:.4}.settings-step .scenario-panel{padding:28px 22px;background-size:32px 32px,32px 32px,32px 32px,32px 32px,256px 256px,100% 100%,100% 100%}.free-table-wrap{border-width:6px;padding:27px 23px 24px}.tabbed-subsections:has(> :is(#systems-view-parent,#practice-view-parent,#free-view-parent,#tools-view-parent)):before{width:min(340px,90%);margin:20px auto;height:26px}.practice-stat:first-child small:before,.live-status>.metric:first-child .metric-label:before{width:19px;height:19px;margin-right:6px}}
+
+/* Keep the decorative footer scoped to the app, above the framework scripts. */
+.page>footer{color:#f1e8da;display:grid;grid-template-columns:auto 1fr;column-gap:24px;row-gap:12px;align-items:center}
+.page>footer:before{grid-column:1/-1;justify-self:center;margin:0 auto 16px}
+.page>footer>span:last-child{justify-self:end;text-align:right}
+body>footer{display:block;padding:0;margin:0;border:0;min-height:0;line-height:0;font-size:0}
+@media(max-width:600px){.page>footer{grid-template-columns:1fr;text-align:center}.page>footer>span:last-child{justify-self:center;text-align:center}}
+
+/* Neutral black accents against the full-page crimson velvet. */
+:root,body{--room-bg:#050505;--room-surface:#0c0c0c;--room-raised:#171717;--black:#000000;--Dash-Fill-Inverse-Strong:#050505;--Dash-Fill-Primary-Strong:#0b0b0b;--Dash-Fill-Primary-Weak:#0b0b0b;--Dash-Fill-Inverse-Weak:#0b0b0b;--Dash-Fill-Disabled:#171717}
+.composer{background:#050505}.composer textarea{background:#050505}
+.pocket-badge.black,.pocket-chip.black,.practice-number.black{background:#020202}
+
+/* Settings share the black-card casino treatment, with crimson reserved for action. */
+.settings-step .dash-input-stepper{background:#151515;border-color:#f1e8da38!important;color:var(--room-ivory)}
+.settings-step .dash-input-stepper:hover{background:#2a2a2a}
+.settings-step .dash-input-container:focus-within{border-color:#f1e8da}
+.settings-step .settings-summary{background:linear-gradient(120deg,#131313f0,#050505e8);border-left-color:#f1e8da8c;color:var(--room-ivory)}
+.settings-step .wheel-rules{background:#080808;border-color:#f1e8da55}
+.settings-step .primary{background:linear-gradient(125deg,#bf203d,#9d1630);border-color:#e2b7b14d;box-shadow:0 7px 20px #0004}
+.settings-step .primary:hover{background:linear-gradient(125deg,#d52a45,#b31d37)}
+
+
+/* Vintage Roulette Club — warm red felt, black rails and Monte Carlo lettering.
+   This is the active presentation layer; input and roulette hit geometry stay intact. */
+:root,body{--room-red:#ad2635;--red:#ad2635;--room-bright:#f2dbc0;--room-soft:#eee3d4;--room-ivory:#f5ebda;--room-line:#f1e8da40;--room-ivory-line:#f1e8da55;--Dash-Fill-Interactive-Strong:#b43a30;--Dash-Fill-Primary-Hover:#24201b;--Dash-Fill-Primary-Active:#4e1715;--Dash-Fill-Interactive-Weak:#3c1714;--Dash-Stroke-Strong:#c1ad93;--Dash-Stroke-Weak:#f1e8da40}
+html{height:auto;min-height:100%;background:#76131e}
+body{height:auto;min-height:100vh;background-color:#76131e;background-image:url('/assets/casino-felt.svg'),radial-gradient(ellipse at 60% 0,#a62b3570,transparent 75%),linear-gradient(100deg,#65101a,#891c29 50%,#69121e);background-size:192px 192px,100% 100%,100% 100%;background-attachment:fixed}
+h1,h2,h3,.system-option strong{font-style:normal;font-weight:600}
+h2{letter-spacing:.005em}h3{letter-spacing:.01em}
+.eyebrow{color:#edd3ad;letter-spacing:.17em}
+.topbar{border-top:3px solid #b4966a;border-bottom-color:#f1e8da55;background:#050505}
+.brand-lockup strong{font-weight:600;letter-spacing:.025em}.brand-lockup small{color:#e0c9a6;letter-spacing:.2em}
+.logo-mark{background:linear-gradient(#8e211a,#691710) padding-box,repeating-conic-gradient(#f1e8da 0deg 12deg,#741b14 12deg 30deg) border-box}
+.hero{grid-template-columns:minmax(0,1.2fr) minmax(290px,.8fr);min-height:425px;padding:42px 48px;border:1px solid #e6d2af88;border-radius:8px;background-color:#821923;background-image:url('/assets/casino-felt.svg'),radial-gradient(ellipse at 35% 20%,#b32d392e,transparent 70%),linear-gradient(110deg,#8d1e2b,#70131e);background-size:192px 192px,100% 100%,100% 100%;box-shadow:inset 0 0 55px #28080055,0 14px 38px #23050150}
+.hero:before{inset:10px;background-size:58px 58px;opacity:.8}
+.hero:after{inset:18px;border:1px solid #f1e8da20;background:none}
+.hero .eyebrow{font-size:12px;letter-spacing:.2em;color:#eed8b5;margin:0 0 19px}
+.hero h1{font-style:normal;font-weight:600;font-size:clamp(46px,5.3vw,70px);line-height:.97;letter-spacing:.045em;text-transform:uppercase;margin-bottom:21px;max-width:580px;text-shadow:0 2px 1px #2f080940}
+.hero h1 span{display:block;font-style:normal;font-weight:600;letter-spacing:.13em;font-size:1.08em;margin-top:5px}
+.hero-copy{font-size:17px;color:#f1e4d2;line-height:1.8;max-width:390px}
+.hero-cta{border-radius:4px;background:#f1e8da;color:#40100d;border:1px solid #fff4e0;box-shadow:0 5px 16px #27060455;padding:15px 20px}
+.hero-link{border-color:#f1e8da70;color:#f1e8da}
+.hero-art{min-height:325px}.hero-wheel{width:min(370px,112%);filter:drop-shadow(0 18px 18px #1d050966)}
+.hero-club-seal{position:absolute;width:270px;right:-80px;top:-48px;opacity:.06;transform:rotate(8deg);pointer-events:none}
+.hero .wheel-card{border-radius:5px;padding:16px 20px;background:#080808;border-color:#f1e8da8a;right:-6px;bottom:0;box-shadow:0 7px 20px #1a040755}
+.hero .wheel-number{font-weight:600}.wheel-card p{color:#e1cfb1}
+.hero-club-details{display:flex;align-items:center;gap:18px;margin-top:28px}
+.club-chips{display:flex;padding-left:2px;flex:none}
+.club-chips span{display:grid;place-items:center;width:34px;height:34px;border:4px solid transparent;border-radius:50%;background:linear-gradient(#0b0b0b,#0b0b0b) padding-box,repeating-conic-gradient(#f1e8da 0deg 15deg,#151515 15deg 45deg) border-box;color:#f1e8da;font-family:var(--room-display);font-size:17px;font-weight:600;box-shadow:0 2px 4px #0007,0 0 0 1px #f1e8da70;margin-left:-2px}
+.club-chips span:nth-child(2){background:linear-gradient(#961f18,#961f18) padding-box,repeating-conic-gradient(#f1e8da 0deg 15deg,#851e17 15deg 45deg) border-box}
+.club-chips span:nth-child(3){background:linear-gradient(#f1e8da,#f1e8da) padding-box,repeating-conic-gradient(#f1e8da 0deg 15deg,#171717 15deg 45deg) border-box;color:#171717}
+.club-signature{font-size:10px;line-height:1.7;letter-spacing:.12em;color:#edd7b5;max-width:170px}
+.tabbed-workflow>.workflow-tab-shell{border:1px solid #f1e8da40;border-radius:5px;background:#050505}
+.workflow-tab{color:#e2d6c3!important}.workflow-tab-selected:after{background:#ca4932;border-radius:0;height:3px}
+#workflow-tabs .workflow-tab:before{color:#e1c295;border-color:#e1c29566;background:#18130e}
+.tabbed-subsections .workflow-tab-list,#session-view .workflow-tab-list{border-radius:5px}
+.tabbed-subsections .workflow-tab,#session-view .workflow-tab{border-radius:3px!important}
+.tabbed-subsections .workflow-tab-selected,#session-view .workflow-tab-selected{background:linear-gradient(120deg,#9d251b,#751a13)!important}
+.settings-step .scenario-panel{border-radius:7px;background-image:var(--room-deco-corners),url('/assets/casino-felt.svg'),linear-gradient(135deg,#101010,#020202);background-position:left 9px top 9px,right 9px top 9px,left 9px bottom 9px,right 9px bottom 9px,0 0,0 0;background-size:36px 36px,36px 36px,36px 36px,36px 36px,192px 192px,100% 100%;background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,repeat,no-repeat}
+.dash-input-container,.scenario-panel .dash-input-container,.dash-dropdown,.Select-control{border-radius:5px}
+.primary,.secondary,.practice-controls button,.composer button,.guide-close,.record-button{border-radius:5px}
+.primary,.settings-step .primary{background:linear-gradient(125deg,#aa2434,#861a27);border-color:#edcfaa66;box-shadow:0 5px 14px #0004}
+.primary:hover,.settings-step .primary:hover{background:linear-gradient(125deg,#c13727,#9c2419);border-color:#f1e8da}
+.secondary,.guide-close,.free-remove{background:#111;border-color:#f1e8da55}.secondary:hover,.guide-close:hover,.free-remove:hover{background:#24201b;border-color:#f1e8da}
+.system-option,.system-option.selected{border-radius:6px;background-image:url('/assets/casino-felt.svg'),linear-gradient(135deg,#101010,#020202);background-size:192px 192px,100% 100%}
+.system-option:hover{border-color:#e9d4ae;background-image:url('/assets/casino-felt.svg'),linear-gradient(135deg,#1b1916,#080808);background-size:192px 192px,100% 100%}
+.system-option.selected{background-color:#8e1d2b;background-image:url('/assets/casino-felt.svg'),linear-gradient(135deg,#a72636,#70131d);border-color:#f1e8dac0;box-shadow:inset 3px 0 0 #f1e8da,0 7px 20px #0004}
+.system-option:before,.system-option:nth-child(4n + 2):before,.system-option:nth-child(4n + 3):before,.system-option:nth-child(4n):before{background-image:url('/assets/casino-roulette-seal.svg');width:112px;height:112px;right:16px;bottom:11px;opacity:.09}
+.system-option:nth-child(3n + 2):before{background-image:url('/assets/casino-geometric-seal.svg')}.system-option:nth-child(3n):before{background-image:url('/assets/casino-chip-seal.svg')}
+.system-option small,.system-option .system-risk-tag{color:#e9dac3}
+.system-symbol{color:#f1e8da;border-color:#dfc9a2;background:#111}
+.system-option.selected .system-symbol{background:linear-gradient(#59150e,#41100c) padding-box,repeating-conic-gradient(#f1e8da 0deg 12deg,#8c2218 12deg 30deg) border-box}
+.settings-step{--room-symbol:url('/assets/casino-geometric-seal.svg')}.system-picker,.practice-section,.practice-mode-panel-free{--room-symbol:url('/assets/casino-roulette-seal.svg')}.next-step{--room-symbol:url('/assets/casino-chip-seal.svg')}.tools-step{--room-symbol:url('/assets/casino-geometric-seal.svg')}
+.system-preview,.roulette-definition,.strategy-dialog{background:linear-gradient(135deg,#171614,#080808);border-color:#f1e8da77;border-radius:7px}
+.winner-card,.next-action,.system-risk-profile,.practice-bets,.free-suggestion,.free-spin-odds{border-radius:7px;background-image:url('/assets/casino-felt.svg'),linear-gradient(135deg,#45140f,#26100c);background-size:192px 192px,100% 100%;border-color:#f1e8da55}
+.live-status>div,.practice-stat{border-radius:6px}.metric-label,.practice-stat small,.live-status small{color:#e5d6bf}
+.practice-stat:first-child small:before,.live-status>.metric:first-child .metric-label:before{background:linear-gradient(#8e2419,#8e2419) padding-box,repeating-conic-gradient(#f1e8da 0deg 12deg,#32130c 12deg 30deg) border-box}
+.free-table-wrap{border:8px solid #080808;border-radius:10px;background-color:#751b25;background-image:url('/assets/casino-felt.svg'),radial-gradient(ellipse at 50% 10%,#a6313e60,transparent 80%),linear-gradient(#751d28,#53121d);background-position:0 0,0 0,0 0;background-size:192px 192px,100% 100%,100% 100%;background-repeat:repeat,no-repeat,no-repeat;box-shadow:0 0 0 1px #e6d2ad99,inset 0 0 65px #27090066,0 15px 35px #21060366}
+.free-table-wrap:before{inset:6px;border-radius:3px;border-color:#f1e8da80}.free-table-wrap:after{inset:10px;border-radius:2px;border-color:#f1e8da30}
+.free-table-masthead strong{color:#f1e8da;letter-spacing:.2em}
+.free-table-masthead:after{width:62px;height:30px;background-image:url('/assets/casino-roulette-seal.svg'),url('/assets/casino-geometric-seal.svg');background-size:29px 29px;opacity:.85}
+.free-table-cell{background:#511823;border-color:#f1e8da88}.free-table-cell.red{background:linear-gradient(135deg,#b3293a,#8e1d2b)}
+.free-streets .free-table-cell{background:#501822}.free-table-cell small,.free-number-board .free-table-cell small,.free-inside-target small{background:#0b0b0b;border-color:#f1e8da80;color:#f1e8da}
+.free-table-preview{background:#170c0760;border-radius:0 4px 4px 0}
+.practice-wheel{box-shadow:0 16px 40px #1a050866,0 0 0 4px #edcfaa15}
+.thread,.composer{border-radius:7px}.bubble{border-radius:8px}.bubble.user{background:linear-gradient(125deg,#7d241b,#511711);border-color:#f1e8da55}
+thead th{background:#1a1713;color:#f1e8da}
+.error,#scenario-error,#portfolio-error{color:#ffe2b9}
+@media(max-width:1050px){.hero{padding:36px 34px;gap:20px;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr)}.hero h1{font-size:52px}.hero-wheel{width:320px}.club-signature{font-size:9px}.hero-actions{gap:18px}}
+@media(max-width:760px){.hero{display:block;min-height:375px;padding:34px 28px;border-radius:6px}.hero h1{font-size:52px;max-width:400px}.hero-art{min-height:0;opacity:.13}.hero-wheel{width:350px;right:-130px;bottom:-80px}.hero-club-seal{display:none}.hero-copy{font-size:16px}.hero-club-details{gap:14px}.club-signature{font-size:10px}.settings-step .scenario-panel{border-radius:6px}.system-option,.system-option.selected{border-radius:6px}.free-table-wrap{border-radius:8px}.topbar>.badge{font-size:9px}}
+@media(max-width:460px){.hero{padding:32px 24px}.hero h1{font-size:40px;letter-spacing:.03em}.hero h1 span{letter-spacing:.13em}.hero .eyebrow{font-size:10px;letter-spacing:.13em}.hero-cta{padding:13px 15px}.club-signature{font-size:9px;max-width:145px}.club-chips span{width:30px;height:30px;font-size:15px}.hero-copy{font-size:16px}.system-option strong{font-size:25px}}
+
+
+/* Make the three session steps read as a sequence; optional tools sit apart. */
+#workflow-tabs{gap:0!important;align-items:stretch}
+#workflow-tabs>.workflow-tab{min-height:88px;padding:18px 12px!important;line-height:1.4!important;flex:1 0 auto!important;white-space:nowrap;min-width:max-content;font-size:14px!important;gap:8px}
+#workflow-tabs-tab-settings:before{content:'1'}
+#workflow-tabs-tab-systems:before{content:'2'}
+#workflow-tabs-tab-track:before{content:'3'}
+#workflow-tabs>:is(#workflow-tabs-tab-settings,#workflow-tabs-tab-systems,#workflow-tabs-tab-track){font-weight:600!important;color:#f5ebda!important;flex-grow:1.4!important}
+#workflow-tabs>:is(#workflow-tabs-tab-settings,#workflow-tabs-tab-systems,#workflow-tabs-tab-track):before{width:35px;height:35px;font-family:var(--room-body);font-size:17px;font-weight:500;border:1px solid #f1e8da88;background:#121212;color:#f5ebda;box-shadow:inset 0 0 0 3px #050505}
+#workflow-tabs>.workflow-tab-selected{background:#6b1921!important;box-shadow:inset 0 -3px 0 #f1e8da!important}
+#workflow-tabs>.workflow-tab-selected:is(#workflow-tabs-tab-settings,#workflow-tabs-tab-systems,#workflow-tabs-tab-track):before{background:#f1e8da;color:#59141d;border-color:#f1e8da;box-shadow:inset 0 0 0 3px #7c1d27}
+#workflow-tabs>:is(#workflow-tabs-tab-settings,#workflow-tabs-tab-systems):after{content:'›';position:absolute;top:50%;bottom:auto;left:auto;right:-6px;height:auto;width:12px;transform:translateY(-50%);border-radius:0;background:none;font-family:var(--room-display);font-size:28px;font-weight:400;color:#dbc9aa99;z-index:1;pointer-events:none}
+#workflow-tabs>:is(#workflow-tabs-tab-track,#workflow-tabs-tab-practice,#workflow-tabs-tab-tools):after{content:none}
+#workflow-tabs-tab-practice{margin-left:14px;border-left:1px solid #f1e8da40!important}
+#workflow-tabs>:is(#workflow-tabs-tab-practice,#workflow-tabs-tab-tools){font-size:13px!important;font-weight:400!important;color:#dccbb2!important;gap:8px}
+#workflow-tabs>:is(#workflow-tabs-tab-practice,#workflow-tabs-tab-tools):before{width:25px;height:25px;font-size:17px;border-color:#f1e8da40}
+@media(max-width:1050px){#workflow-tabs>.workflow-tab{padding:16px 10px!important;font-size:14px!important;gap:8px}#workflow-tabs-tab-practice{margin-left:10px}#workflow-tabs>:is(#workflow-tabs-tab-practice,#workflow-tabs-tab-tools){font-size:12px!important}#workflow-tabs>:is(#workflow-tabs-tab-settings,#workflow-tabs-tab-systems,#workflow-tabs-tab-track):before{width:30px;height:30px;font-size:16px}}
+@media(max-width:760px){#workflow-tabs>.workflow-tab{flex:1 1 30%!important;min-height:78px;padding:12px 8px!important;font-size:13px!important;flex-direction:column;gap:7px}#workflow-tabs>:is(#workflow-tabs-tab-settings,#workflow-tabs-tab-systems,#workflow-tabs-tab-track){flex-grow:1!important}#workflow-tabs>:is(#workflow-tabs-tab-practice,#workflow-tabs-tab-tools){flex:1 1 45%!important;flex-direction:row;min-height:48px;border-top:1px solid #f1e8da30!important}#workflow-tabs-tab-practice{margin-left:0;border-left:0!important}#workflow-tabs-tab-tools{border-left:1px solid #f1e8da30!important}#workflow-tabs>:is(#workflow-tabs-tab-settings,#workflow-tabs-tab-systems):after{top:29px;font-size:24px}}
+
+/* Keep the two optional destinations together when the main steps fill a row. */
+@media(max-width:1200px){
+  #workflow-tabs{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))}
+  #workflow-tabs>.workflow-tab{grid-column:span 2;min-width:0}
+  #workflow-tabs>:is(#workflow-tabs-tab-practice,#workflow-tabs-tab-tools){grid-column:span 3;min-height:48px;padding:12px 10px!important;border-top:1px solid #f1e8da30!important;flex-direction:row}
+  #workflow-tabs-tab-practice{margin-left:0;border-left:0!important}
+  #workflow-tabs-tab-tools{border-left:1px solid #f1e8da30!important}
+}
+@media(max-width:760px){
+  #workflow-tabs>:is(#workflow-tabs-tab-settings,#workflow-tabs-tab-systems,#workflow-tabs-tab-track){grid-column:1/-1;flex-direction:row;min-height:56px}
+  #workflow-tabs>:is(#workflow-tabs-tab-settings,#workflow-tabs-tab-systems):after{content:none}
+}
+
+.roulette-definition{z-index:10020}
+
+/* Solid hover surfaces must mask the page, even while a card is dimmed. */
+.system-preview,.roulette-definition{background:#0b0b0b;background-image:none;backdrop-filter:none;mix-blend-mode:normal}
+.roulette-definition{opacity:1}
+
+
+/* A body-level, native top-layer popup escapes every card stacking context. */
+.system-name .system-preview{display:none}
+.system-preview-overlay{position:fixed;inset:auto;margin:0;visibility:visible;opacity:1;z-index:10030;pointer-events:auto;overflow:auto;max-height:calc(100vh - 24px);background:#0b0b0b;color:var(--room-ivory);font-family:var(--room-body);font-size:15px;line-height:1.75;box-shadow:0 18px 55px #000b}
+.system-preview-overlay[hidden]{display:none!important}
+.system-preview-overlay .preview-label{display:block;font-family:var(--room-display);font-size:18px;font-weight:600;margin-bottom:3px}
+.system-preview-overlay::backdrop{background:transparent;pointer-events:none}
+
+/* Local roulette-table illustrations share the room's felt and black rail. */
+.roulette-definition img{background:#080808;border:1px solid #f1e8da50;border-radius:14px}
+
+/* The longer brand keeps its subtitle readable beside the navigation. */
+.brand-lockup{min-width:0}
+.brand-lockup small{letter-spacing:.06em;line-height:1.5;text-transform:none}
+.hero .brand-subtitle{max-width:none;font-size:19px;line-height:1.6}
+@media(max-width:760px){.brand-lockup strong{font-size:27px}.brand-lockup small{font-size:9px;letter-spacing:.02em}.hero .brand-subtitle{font-size:17px}}
+@media(max-width:460px){.brand-lockup strong{font-size:24px}.brand-lockup small{font-size:8px}.topbar>.badge{display:none}}
+
+/* The entrance wheel is an independent, keyboard-accessible display toy. */
+button.hero-wheel{display:block;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer;line-height:0;flex:none;box-shadow:none}
+.hero-wheel-disc{display:block;width:100%;height:auto;border-radius:50%}
+button.hero-wheel:hover{filter:drop-shadow(0 18px 18px #1d050966) brightness(1.06)}
+button.hero-wheel:focus-visible{outline:2px solid #f1e8da;outline-offset:8px}
+button.hero-wheel:disabled{cursor:progress;opacity:1}
+.hero-wheel-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){
+  .hero-art{position:relative;inset:auto;opacity:1;min-height:0;margin-top:28px;pointer-events:auto}
+  button.hero-wheel{position:relative;right:auto;bottom:auto;width:min(270px,85%)}
+}
+
+/* A counter-rotating ivory ball drops inside the rim, clear of the number labels. */
+.hero-art{flex-direction:column;gap:0}
+.hero .wheel-card{position:static;align-items:center;text-align:center;width:auto;min-width:175px;margin-top:17px;padding:10px 18px}
+.hero .wheel-card .wheel-number{font-size:28px}
+.hero .wheel-card p{margin-top:5px}
+.hero-ball-orbit{position:absolute;inset:0;pointer-events:none;border-radius:50%}
+.hero-ball{position:absolute;left:50%;top:14.2%;width:2.8%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 30% 25%,#fff 0,#fff9e9 30%,#e3d2b3 72%,#a18b69 100%);box-shadow:0 2px 3px #000b,0 0 1px 1px #fffae8;pointer-events:none}
+@media(max-width:760px){.hero .wheel-card{display:flex;margin-top:14px}}
+
+/* Vivienne stands behind the entrance wheel; the settled ball cues one wink. */
+.hero-art{padding-top:145px}
+.hero-dealer{position:absolute;top:-9px;right:-25px;width:275px;height:400px;z-index:0;pointer-events:none;mask-image:linear-gradient(#000 0%,#000 75%,transparent 100%)}
+.hero-dealer img,.hero-dealer-eyelid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center top;transform:scaleX(-1)}
+.hero-dealer-eyelid{pointer-events:none}
+.hero .wheel-card{position:relative;z-index:1}
+@media(min-width:1051px){.hero-dealer{right:-15px;width:300px;height:420px}.hero-art{padding-top:155px}}
+@media(max-width:760px){.hero-art{padding-top:140px}.hero-dealer{width:250px;height:365px;right:calc(50% - 145px);top:-8px}}
+@media(prefers-reduced-motion:reduce){.hero-dealer-eyelid{display:none}}
+
+.hero-club-seal{z-index:-1}

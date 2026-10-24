@@ -1,0 +1,45 @@
+Vivienne entrance dealer — user-requested image assets
+Created with the built-in image_gen tool on 2026-10-24.
+
+Final assets:
+/Users/sagegrinta/Documents/Docs/Documents/Yale/MGT 409 (AI Foundation for Managers)/Final Project/assets/vivienne-dealer-original.png
+/Users/sagegrinta/Documents/Docs/Documents/Yale/MGT 409 (AI Foundation for Managers)/Final Project/assets/vivienne-dealer-wink.png
+
+Normal source: /Users/sagegrinta/.codex/generated_images/01a16a3a-37f9-7471-8e1c-d0d22698b192/exec-ed02cc23-c84c-4e70-91d0-8951a50e8e9b.png
+Wink source: /Users/sagegrinta/.codex/generated_images/01a16a3a-37f9-7471-8e1c-d0d22698b192/exec-6523a945-be26-44c7-9277-939d1a1e4d04.png
+
+Original avatar remains unchanged. Both images are mirrored by CSS to face left.
+The normal frame stays visible. A CSS mask reveals only the matching wink-eye region
+of the alternate frame, avoiding changes to her posture or the transparent backdrop.
+The ball landing triggers a 400-ms wink for every completed display spin,
+regardless of pocket/color; starting another spin or changing the wheel clears it.
+Reduced motion disables crossfades. No AI call or session update occurs per wink.
+
+Final normal-frame prompt:
+Use case: identity-preserve. Reference image: Vivienne, a fictional adult AI casino host. Create a professional, classroom-appropriate casino dealer portrait of this same blonde woman. Change her outfit to a formal black long-sleeved dress with a HIGH BOAT NECKLINE fully covering her chest, pearl earrings and necklace, crimson velvet wrap over her shoulders. Head and torso turned toward the LEFT edge of the image: her nose points LEFT, her right cheek is closest to the viewer, both eyes visible, natural warm smile and both eyes open. Frame head through waist with full hair intact. One woman centered, no props, no wheel, no text. Photographic studio quality. Isolated person on a genuinely transparent background with alpha, no room, no backdrop, no colored haze. Vertical 2:3 composition. Keep her recognizable face and blonde hairstyle.
+
+Final wink-frame prompt:
+Use case: identity-preserve, animation frame edit. Edit ONLY one eye in the supplied portrait. This is an animation pair for the same fictional adult AI host in a classroom roulette simulator. Keep EXACTLY the same canvas size, framing, body pose, face position, hair, pearl jewelry, high-neck black dress, crimson wrap, lighting, and background/alpha. Close just her eye on the RIGHT side of the image in a friendly brief wink, with a very subtle playful smile. The other eye stays OPEN. Keep the mouth, head, nose, hairstyle, and every part outside that eye as unchanged as possible. One portrait, no text, no props, no extra person. Preserve existing transparency, with transparent outside the woman wherever possible.
+
+
+2026-10-24 restoration: The user supplied the original dress/portrait again.
+It is copied unchanged to assets/vivienne-dealer-original.png and is now the
+normal frame. The earlier formal portrait is preserved but no longer used.
+The masked wink-eye region remains; wink hold is now 400 ms with 80 ms fades.
+
+
+2026-10-24 final-diagnostic animation correction:
+The current entrance animation no longer uses the alternate wink bitmap or the
+earlier two-image mask/crossfade. assets/vivienne-wink.js draws a continuous local
+canvas deformation of the eyelid and neighboring skin sampled from
+assets/vivienne-dealer-original.png. The original portrait/dress raster is unchanged.
+Because the entrance portrait is mirrored in CSS, the source-left eye corresponds
+to her LEFT eye on the viewer's RIGHT. Only that eye closes; the opposite eye and
+the rest of the portrait remain the original image.
+The full motion lasts 440 ms: 125 ms smooth close, 35 ms closed, 280 ms smooth reopen.
+Every completed decorative display spin triggers the same motion, regardless of
+the winning pocket/color. Starting another spin, resetting the wheel or hiding the
+page cancels it. Reduced-motion preference suppresses the wink. No AI request,
+new generated bitmap, session update or wager is involved.
+assets/vivienne-dealer-wink.png and the earlier generation prompts above are retained
+as historical provenance only; that alternate bitmap is not used by the current UI.

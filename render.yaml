@@ -1,0 +1,26 @@
+# Free web service only: no paid databases, disks, workers or autoscaling.
+services:
+  - type: web
+    name: crimson-calculus
+    runtime: python
+    plan: free
+    buildCommand: python -m pip install -r requirements.txt
+    startCommand: gunicorn -c gunicorn.conf.py wsgi:server
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.14.7
+      - key: CRIMSON_HOSTED_DEMO
+        value: "1"
+      - key: CRIMSON_DEMO_USERNAME
+        value: guest
+      - key: CRIMSON_DEMO_PASSWORD
+        generateValue: true
+      - key: PORTKEY_API_KEY
+        sync: false
+      - key: OPENBLAS_NUM_THREADS
+        value: "1"
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MALLOC_ARENA_MAX
+        value: "2"

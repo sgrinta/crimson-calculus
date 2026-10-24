@@ -1,0 +1,56 @@
+/* A quiet, always-available host. The panel is modeless and leaves the app running. */
+.host-portrait{display:block;width:64px;height:64px;flex:none;overflow:hidden;border-radius:50%;border:1px solid #f1e8daaa;background:#6d1821;box-shadow:0 0 0 4px #f1e8da0b}
+.host-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;transform:scale(3.4);transform-origin:50% 5%}
+.host-launcher{position:fixed;right:24px;bottom:22px;z-index:1501;display:flex;align-items:center;gap:13px;padding:8px 19px 8px 8px;border:1px solid #f1e8da8a;border-radius:50px;background:linear-gradient(120deg,#19110e,#080808);box-shadow:0 10px 30px #0008;color:var(--room-ivory);text-align:left;cursor:pointer}
+.host-launcher:hover{border-color:#f1e8da;background:#181210}.host-launcher:focus-visible,.host-close:focus-visible{outline:2px solid #f1e8da;outline-offset:4px}
+.host-launcher-portrait{width:56px;height:56px;border:2px solid #e3cbaa}
+.host-launcher-label{display:flex;flex-direction:column;gap:2px}.host-launcher-label strong{font-family:var(--room-display);font-size:23px;font-weight:600;line-height:1.1;letter-spacing:.01em}.host-launcher-label small{font-size:11px;letter-spacing:.06em;color:#e5cdb1}
+.host-launcher.is-open{border-color:#f1e8da;background:#721c28}
+.host-panel{position:fixed;right:24px;bottom:108px;z-index:1500;width:min(460px,calc(100vw - 32px));height:min(760px,calc(100dvh - 132px));display:flex;flex-direction:column;min-height:0;border:1px solid #f1e8da88;border-radius:12px;background:#090909;box-shadow:0 22px 70px #000a;color:var(--room-ivory);overflow:hidden}
+.host-panel[hidden]{display:none!important}
+.host-panel-header{display:flex;align-items:center;gap:15px;flex:none;padding:19px 20px;background:linear-gradient(120deg,#641a22,#21100f);border-bottom:1px solid #f1e8da40}
+.host-panel-header .host-portrait{width:112px;height:140px;border-radius:56px 56px 10px 10px}
+.host-panel-header .host-portrait img{transform:scale(1.6);transform-origin:50% 0%}
+.host-heading{flex:1;min-width:0}.host-heading .eyebrow{font-size:9px;letter-spacing:.19em;color:#e6cba7;margin:0 0 5px}.host-heading h2{font-size:29px;line-height:1.05;margin:0;font-weight:600;letter-spacing:0}
+.host-close{align-self:flex-start;display:grid;place-items:center;width:30px;height:30px;flex:none;border:1px solid #f1e8da55;background:#09090977;color:var(--room-ivory);font-size:24px;border-radius:50%;padding:0;line-height:1;cursor:pointer}.host-close:hover{background:#090909}
+.host-panel .analyst-section{display:flex;flex-direction:column;flex:1;min-height:0;padding:14px 18px 12px;border:0}
+.host-tour,.host-options{flex:none;border:0;border-bottom:1px solid #f1e8da24;margin:0;padding:0 0 9px}.host-options{padding-top:8px}
+.host-tour summary,.host-options summary{font-size:13px;font-weight:500;line-height:1.6;color:#ecdbc2}
+.host-tour-body,.host-options-body{max-height:170px;overflow:auto;padding:8px 0 0;font-size:13px;line-height:1.7}
+.host-tour-body ol{padding-left:20px;margin:0}.host-tour-body li{padding-left:3px;margin-bottom:8px;font-size:13px}.host-tour-body p{margin:8px 0 2px;font-size:13px}
+.host-options .small-note,.host-options .share-session{font-size:12px;line-height:1.65;margin:8px 0}.host-options .badge{font-size:10px;padding:4px 8px}.host-options input{accent-color:#b02b3a}.host-options .share-session label{display:flex;gap:8px;align-items:flex-start}
+.host-context-status{flex:none;font-size:12px;line-height:1.5;color:#e2c9a8;margin:9px 0 0}
+.host-panel .thread{flex:1;min-height:0;max-height:none;border:0;border-radius:0;background:transparent;box-shadow:none;padding:18px 0;gap:15px;overscroll-behavior:contain;scrollbar-gutter:stable;overflow-y:auto}
+.host-panel .chat-starter{border:0;padding:0;max-width:100%;font-size:15px;line-height:1.7;background:transparent}.host-panel .chat-starter p{font-size:15px;line-height:1.7;margin:0 0 14px}.host-panel .chat-starter .host-welcome-title{font-family:var(--room-display);font-size:27px;line-height:1.2;font-weight:600;margin:0 0 14px}.host-panel .chat-starter small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:20px 0 8px;color:#e2c9a8}
+.host-message-row{display:flex;align-items:flex-start;gap:9px;align-self:stretch;min-width:0}.host-message-avatar{width:30px;height:30px;flex:none;object-fit:cover;border-radius:50%;border:1px solid #f1e8da77;margin-top:3px}
+.host-panel .bubble{font-size:15px;line-height:1.75;padding:13px 15px;max-width:94%;border-radius:8px;overflow-wrap:anywhere}.host-message-row .bubble.assistant{max-width:calc(100% - 39px);min-width:0;flex:1;background:#171512;border-color:#f1e8da30}.host-panel .bubble.user{background:#701e28;border-color:#d5ac8655}.host-panel .bubble p,.host-panel .bubble li{font-size:15px;line-height:1.75}.host-panel .bubble ul,.host-panel .bubble ol{padding-left:20px}.host-panel .bubble table{display:block;max-width:100%;overflow:auto}.host-panel .trace,.host-panel .message-usage,.host-panel .trace pre{font-size:11px;line-height:1.65}.host-panel .dots{border-color:#f1e8da40}.host-panel .dots span{background:#cb4a56}
+.host-panel .composer{flex:none;border:1px solid #f1e8da66;border-radius:7px;margin:0;background:#050505;min-width:0;overflow:hidden;flex-wrap:nowrap}.host-panel .composer textarea{font-size:15px;line-height:1.65;height:78px;min-height:78px;padding:12px 13px;resize:vertical;max-height:140px;min-width:0;outline-offset:-3px;color:var(--room-ivory);background:#050505}.host-panel .composer button{min-width:64px;margin:5px;padding:9px 10px;font-size:13px;letter-spacing:0;border-radius:4px;background:#992735;color:var(--room-ivory);text-transform:none}.host-panel .composer button:disabled{opacity:.7;box-shadow:none}
+.host-composer-hint{flex:none;font-size:11px;line-height:1.6;color:#d4c6b3;margin:9px 0 0}.host-panel .composer:focus-within{outline:1px solid #f1e8da}
+.host-hub-intro{display:flex;align-items:center;gap:28px;max-width:850px;margin-bottom:25px}.host-hub-portrait{width:120px;height:120px}.host-hub-intro p:not(.eyebrow){font-size:16px;line-height:1.8}.host-hub .small-note{max-width:750px}
+.page>footer{padding-bottom:115px}
+@media(max-width:600px){.host-launcher{right:12px;bottom:14px;padding:6px 14px 6px 6px;gap:10px}.host-launcher-portrait{width:48px;height:48px}.host-launcher-label strong{font-size:21px}.host-launcher-label small{font-size:10px}.host-panel{right:12px;bottom:89px;width:calc(100vw - 24px);height:min(760px,calc(100dvh - 107px));border-radius:10px}.host-panel-header{padding:15px;gap:12px}.host-panel-header .host-portrait{width:88px;height:110px}.host-heading h2{font-size:26px}.host-heading .eyebrow{font-size:8px}.host-panel .analyst-section{padding:12px 14px}.host-hub-intro{align-items:flex-start;gap:20px}.host-hub-portrait{width:78px;height:78px}.host-hub-intro h2{font-size:32px}}
+@media(max-height:650px){.host-panel-header{padding-top:12px;padding-bottom:12px}.host-panel-header .host-portrait{width:80px;height:100px}}
+@media(prefers-reduced-motion:reduce){.host-panel .dots span{animation:none}}
+
+.host-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* A chat edit changes only Step 1; the receipt makes the effect explicit. */
+.host-settings-update{margin:15px 0;padding:14px;border:1px solid #f1e8da55;border-left:3px solid #af3545;border-radius:6px;background:#080808}
+.host-settings-update>strong{font-family:var(--room-display);font-size:20px;color:#f1e8da}
+.host-settings-update ul{margin:10px 0;padding-left:19px}
+.host-settings-update li,.host-settings-update p{font-size:14px!important;line-height:1.6!important}
+.host-settings-update button{font-size:13px;padding:10px 12px;white-space:normal}
+.settings-step .scenario-panel{scroll-margin-top:160px}
+@media(max-width:760px){.settings-step .scenario-panel{scroll-margin-top:240px}}
+
+/* Compact evidence controls and readable, explicit local limits. */
+.host-control-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex:none;margin:7px 0 0;font-size:12px;line-height:1.4;color:#ead9bd}
+.host-control-row button{font:inherit;padding:5px 8px;white-space:nowrap;margin:0}
+.host-settings-notice{flex:none;font-size:12px;line-height:1.45;color:#ead9bd;max-height:60px;overflow:auto}
+.host-settings-notice:not(:empty){padding:7px 0}
+.host-panel .ai-run-export{font-size:12px;line-height:1.5;margin:8px 0 0;padding:4px 0;text-decoration:underline;text-underline-offset:3px}
+.host-panel .ai-usage-details p,.host-panel .ai-usage-details small{font-size:12px;line-height:1.65;margin:8px 0}
+.setup-check-list{list-style:none;padding:0;margin:20px 0}.setup-check-row{padding:16px 0;border-bottom:1px solid #f1e8da40}.setup-check-row strong{margin-right:15px}.setup-check-row p{margin:6px 0}
+.setup-badge{display:inline-block;font-size:11px;letter-spacing:.08em;border:1px solid #f1e8da66;padding:2px 8px;color:#eee3d3}.setup-badge.fail{background:#851d2d}.setup-badge.warn{border-style:dashed}.setup-overall{font-weight:600}
+@media(max-height:780px){.host-panel-header{padding-top:12px;padding-bottom:12px}.host-panel-header .host-portrait{width:80px;height:100px}.host-panel .composer textarea{height:66px;min-height:66px}}
+@media(max-height:780px){.host-options-body{max-height:110px}.host-panel .thread{padding-top:10px;padding-bottom:10px}}

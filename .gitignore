@@ -1,0 +1,35 @@
+# Local Python environment and generated interpreter/test files
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Credentials: commit the blank example, never actual environment files
+.env
+.env.*
+!.env.example
+
+# Local usage accounting, server logs and machine metadata
+runtime/
+.DS_Store
+Thumbs.db
+
+# Unused design candidates; production artwork remains in assets/
+/design/
+
+# Duplicate evidence bundles; retain their unpacked evidence and test logs
+/evidence/**/*.zip
+
+# Historical drafts and generated layout previews, not reproducibility inputs
+/submission/build/pre-*/
+/submission/build/report-previews/
+/submission/build/slide-previews/
+/submission/build/*.jpg
+/submission/build/*.png
+/submission/build/*.webp
+/submission/build/github-upload-preparation.json

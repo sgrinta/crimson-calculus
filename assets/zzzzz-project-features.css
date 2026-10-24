@@ -1,0 +1,15 @@
+.example-modal { position:fixed; inset:0; z-index:15000; background:rgba(0,0,0,.76); align-items:center; justify-content:center; padding:24px; }
+.example-dialog { width:min(940px,100%); max-height:calc(100dvh - 48px); overflow:auto; background:#101010; color:#f4ecdf; border:1px solid #d6c7ac; border-radius:12px; padding:28px 34px; box-shadow:0 24px 100px #000; }
+.example-dialog h2 { clear:both; font-size:clamp(1.6rem,3vw,2.3rem); margin:12px 0 18px; }
+.example-dialog .guide-close { float:right; position:static; }
+.example-dialog p,.example-dialog li { font-size:16px; line-height:1.65; }
+.example-progress { color:#edb4b8; font-weight:600; letter-spacing:.05em; }
+.example-callout { padding:16px 20px; border-left:3px solid #a13b4f; background:#261115; border-radius:4px; }
+.example-callout p { margin-bottom:0; }
+.example-navigation { justify-content:space-between; margin-top:24px; }
+.comparison-export-actions { display:flex; flex-wrap:wrap; align-items:center; gap:8px 18px; }
+.comparison-export-actions button { white-space:nowrap; }
+.message-cost { display:block; color:#e8d8bc; font-size:13px; line-height:1.5; margin:7px 0; }
+.cost-source { font-size:13px; line-height:1.5; }
+.example-open { border-color:#d6c7ac; }
+@media(max-width:600px){ .example-modal{padding:10px}.example-dialog{padding:20px;max-height:calc(100dvh - 20px)}.example-dialog .table-wrap{font-size:13px} }
