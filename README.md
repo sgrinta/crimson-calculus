@@ -29,7 +29,7 @@ After setup, Mac users can double-click `Start Crimson Calculus.command`. Run au
 
 ## Render Free deployment
 
-Connect this private GitHub repository in Render using New → Blueprint. The supplied `render.yaml` declares one **Free** Python web service and no paid storage/database. Its build command installs requirements; `gunicorn -c gunicorn.conf.py wsgi:server` runs the production server, and `/health` is its health probe.
+Connect this GitHub repository in Render using New → Blueprint. The supplied `render.yaml` declares one **Free** Python web service and no paid storage/database. Its build command installs requirements; `gunicorn -c gunicorn.conf.py wsgi:server` runs the production server, and `/health` is its health probe.
 
 Set `PORTKEY_API_KEY` using Render’s secret Environment settings. The blueprint sets `CRIMSON_PUBLIC_DEMO=1`, so visitors can open the website without a password. Anyone with the link can use Vivienne within the shared AI limits. The API key stays server-side. To restore the optional website login, set `CRIMSON_PUBLIC_DEMO=0`; the existing generated `CRIMSON_DEMO_PASSWORD` and username `guest` then apply. Always use the HTTPS live URL.
 
